@@ -27,9 +27,9 @@ export const site = {
     ],
   },
 
-  /** NEEDS CONFIRMATION (C1): footer used "26, Vajira Road"; Google profile + 2026 flyers use this. */
+  /** Confirmed by the client (17 Oct 2026). The Google profile still says R. A. De Mel Mawatha — same corner office. */
   address: {
-    street: "26, R. A. De Mel Mawatha",
+    street: "26, Vajira Road",
     locality: "Colombo 04",
     postalCode: "00400",
     country: "Sri Lanka",
@@ -43,9 +43,9 @@ export const site = {
     reviewsUrl:
       "https://www.google.com/maps/place/Al-Safaa+Travels+%26+Tours/@6.8904911,79.8585629,17z/data=!4m8!3m7!1s0x3ae25b063205efa1:0x889270e0ad49e3bc!8m2!3d6.8904911!4d79.8585629!9m1!1b1",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=Al-Safaa+Travels+%26+Tours,+26+R.+A.+De+Mel+Mawatha,+Colombo&ll=6.8904911,79.8585629&z=16&output=embed",
+      "https://www.google.com/maps?q=Al-Safaa+Travels+%26+Tours,+26+Vajira+Road,+Colombo&ll=6.8904911,79.8585629&z=16&output=embed",
     /** Places API (New) place resource, used only when GOOGLE_PLACES_API_KEY is set. */
-    placeQuery: "Al-Safaa Travels & Tours, 26 R. A. De Mel Mawatha, Colombo",
+    placeQuery: "Al-Safaa Travels & Tours, Colombo",
   },
 
   social: [

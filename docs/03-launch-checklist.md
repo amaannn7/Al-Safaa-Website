@@ -4,7 +4,7 @@ The live WordPress site stays untouched until the new site has been reviewed and
 
 ## 1. Client confirmations (blocking)
 
-- [ ] **Address** (C1): "26, R. A. De Mel Mawatha" (Google profile, 2026 flyers) or "26, Vajira Road" (old footer). The Google map pin sits at the Vajira Road corner, so both may describe the same office. Pick one wording.
+- [x] **Address** (C1): confirmed as "26, Vajira Road, Colombo 04". Update the Google Business Profile, which still says R. A. De Mel Mawatha.
 - [ ] **Primary WhatsApp** (C2): 071 710 7887 (2026 marketing) or 072 710 7887 (old floating button).
 - [ ] **Brand palette** (C3): teal and gold interface, with the logo kept blue and orange, or reversed white on dark backgrounds as on the 2026 flyers.
 - [ ] **Hajj itinerary labels** (C4): the old page said "23 Day" and "15 Day" groups; the new site says 22-day and 14-day.
@@ -60,7 +60,7 @@ New pages: `/hajj/`, `/hajj/[package]/`, `/umrah/`, `/umrah/[package]/`, `/saudi
 - [ ] Use URL Inspection on `/`, `/hajj-2027/` and `/umrah/`, and request indexing.
 - [ ] Check that the legacy URLs above return 301 to the right page: `curl -I https://flyalsafaa.com/hello-world/`
 - [ ] Validate structured data with Google's Rich Results Test on a package page.
-- [ ] Update the Google Business Profile website link if needed, and fix the address there and on social profiles once C1 is decided.
+- [ ] Update the Google Business Profile website link if needed, and change its address to "26, Vajira Road, Colombo 04" so it matches the site.
 - [ ] Watch Search Console "Pages" and "404" reports for two to four weeks.
 
 ## 5. Rollback

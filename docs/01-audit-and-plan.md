@@ -53,7 +53,7 @@ The Hajj 2027 itinerary and highlights were injected by JavaScript, so search en
 
 | # | Conflict | What the new site does for now |
 |---|---|---|
-| C1 | **Address.** The footer says "26, Vajira Road, Colombo 04". The Hajj 2027 page, both 2026 flyers and the Google profile say "26, R A De Mel Mawatha, Colombo 04". | Uses R A De Mel Mawatha, because it matches the Google map pin and the newest material. The pin sits at the Vajira Road corner, so both may describe the same office. One value in `src/config/site.ts`. |
+| C1 | **Address.** The footer says "26, Vajira Road, Colombo 04". The Hajj 2027 page, both 2026 flyers and the Google profile say "26, R A De Mel Mawatha, Colombo 04". | **Resolved:** the client confirmed "26, Vajira Road, Colombo 04" (17 Oct 2026). The Google profile still shows R. A. De Mel Mawatha; update it to match. |
 | C2 | **Primary WhatsApp number.** The floating button uses 072 710 7887. All 2026 marketing uses 071 710 7887 for "Call / WhatsApp for bookings". | 071 is the primary WhatsApp number and both mobiles are listed. One value in `src/config/site.ts`. |
 | C3 | **Brand colours.** The logo is royal blue (#1D499F) and orange (#EFA00B). The brief and the Hajj 2027 page use deep teal (#0C3D38) with gold (#C8963E). | Teal and gold for the interface. The logo keeps its original colours on light backgrounds, and on dark backgrounds uses the reversed white version that the company's own 2026 flyers already use. |
 | C4 | **Hajj itinerary labels.** The itinerary says "Arrival of 23 Day Package Group" and "15 Day Package Group", but the packages are 22 and 14 days (2–23 May and 10–23 May, inclusive). | Corrected to 22-day and 14-day. Please confirm. |
