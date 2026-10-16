@@ -64,7 +64,7 @@ Nothing to do. A package drops off the upcoming lists on its departure day. Its 
 
 1. Put the image in `public/images/photos/` as a JPEG about 2400 px wide. Next.js converts it to AVIF/WebP and resizes it automatically.
 2. Always write a meaningful `alt` text.
-3. If it's a licensed stock photo, add the photographer to `src/data/credits.ts`.
+3. If it's a licensed stock photo, record the photographer in `src/data/credits.ts`.
 4. Only use photographs of identifiable pilgrims with their permission.
 
 ## Testimonials
@@ -72,10 +72,6 @@ Nothing to do. A package drops off the upcoming lists on its departure day. Its 
 Add **genuine** reviews to `src/data/testimonials.ts`, quoted word for word with the reviewer's name, date and source. The reviews section appears on the home page as soon as the list has entries.
 
 Alternatively, set `GOOGLE_PLACES_API_KEY` in Vercel to show up to five live Google reviews (Google requires the attribution that the component already shows). Create the key in Google Cloud and restrict it to the **Places API (New)**.
-
-## Gallery
-
-Add photos to `src/data/gallery.ts` (with `width` and `height`). The `/gallery/` page and its footer link appear automatically once there are at least six.
 
 ## Services
 
