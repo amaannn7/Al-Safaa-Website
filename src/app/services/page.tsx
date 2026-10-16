@@ -3,7 +3,7 @@ import Image from "next/image";
 import { confirmedServices, sriLanka } from "@/data/services";
 import { PageHero } from "@/components/sections/page-hero";
 import { FinalCta } from "@/components/sections/final-cta";
-import { AviasalesWidget } from "@/components/media/aviasales-widget";
+import { FlightsLink } from "@/components/media/flights-link";
 import { WhatsAppButton } from "@/components/ui/button";
 import { topicEnquiry } from "@/lib/contact";
 import { cn } from "@/lib/cn";
@@ -16,7 +16,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "Travel Services — Flights & Visit Sri Lanka",
   description:
-    "Compare and book cheap flights from over 1,000 airlines with our partner Aviasales, and discover Sri Lanka — beaches, hill country, heritage and Halal-friendly hospitality — with Al-Safaa Travels & Tours.",
+    "Compare cheap flights from over 1,000 airlines with our partner Aviasales, and discover Sri Lanka — beaches, hill country, heritage and Halal-friendly hospitality — with Al-Safaa Travels & Tours.",
   alternates: { canonical: "/services/" },
   openGraph: { url: "/services/", images: [{ url: sriLanka.hero.src }] },
 };
@@ -48,8 +48,8 @@ export default function ServicesPage() {
             </h2>
             {flights && <p className="lede mt-6 text-muted">{flights.summary}</p>}
           </div>
-          <div className="rounded-[1.5rem] bg-sand-50 p-5 shadow-[0_30px_60px_-40px_rgba(6,31,29,.5)] sm:p-8 lg:col-span-7" data-reveal>
-            <AviasalesWidget />
+          <div className="lg:col-span-6 lg:col-start-7" data-reveal>
+            <FlightsLink />
           </div>
         </div>
       </section>

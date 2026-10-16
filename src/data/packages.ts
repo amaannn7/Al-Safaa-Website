@@ -83,7 +83,7 @@ const hajjImage = {
 
 const hajjFlyer = {
   src: "/images/existing/hajj-2027-flyer.jpg",
-  alt: "Al-Safaa Hajj 2027 announcement: bookings now open for the 22 days and 14 days packages. Limited seats available.",
+  alt: "Al-Safaa Hajj 2027 announcement for the 22 days and 14 days packages. Limited seats available.",
 };
 
 /* ------------------------------------------------------------------------ */

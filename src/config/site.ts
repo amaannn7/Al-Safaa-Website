@@ -18,10 +18,10 @@ export const site = {
 
   contact: {
     email: "info@flyalsafaa.com",
-    /** NEEDS CONFIRMATION (C2): 2026 marketing uses 071 for "Call / WhatsApp for bookings". */
+    /** NEEDS CONFIRMATION (C2): 2026 marketing uses 071 as the main Call / WhatsApp number. */
     whatsapp: { e164: "94717107887", display: "+94 71 710 7887" },
     phones: [
-      { label: "Bookings · Call / WhatsApp", e164: "94717107887", display: "+94 71 710 7887" },
+      { label: "Enquiries · Call / WhatsApp", e164: "94717107887", display: "+94 71 710 7887" },
       { label: "Mobile", e164: "94727107887", display: "+94 72 710 7887" },
       { label: "Office", e164: "94112366566", display: "+94 11 236 6566" },
     ],
@@ -63,10 +63,8 @@ export const site = {
   aviasales: {
     marker: "419143",
     trs: "217323",
-    /** The partner search widget already used on the live home page. */
-    widgetSrc:
-      "https://tp.media/content?trs=217323&shmarker=419143&show_hotels=false&powered_by=false&locale=en_us&currency=usd&searchUrl=www.aviasales.com%2Fsearch&color_button=%230C3D38&color_icons=%23C8963E&dark=%23082826&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%230C3D38&border_radius=6&no_labels=&plain=true&promo_id=7879&campaign_id=100",
-    fallbackHref: "https://www.aviasales.com/?marker=419143",
+    /** Outbound partner link only — no embedded search or booking form. */
+    partnerHref: "https://www.aviasales.com/?marker=419143",
   },
 } as const;
 

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: "/hajj-2027/",
     title: "Hajj 2027 — 22 & 14 Day Packages | Al-Safaa Travels & Tours",
-    images: [{ url: "/images/existing/hajj-2027-flyer.jpg", alt: "Hajj 2027 bookings now open" }],
+    images: [{ url: "/images/existing/hajj-2027-flyer.jpg", alt: "Al-Safaa Hajj 2027 announcement" }],
   },
 };
 
@@ -62,12 +62,12 @@ export default async function Hajj2027Page() {
           <p className="text-white/80 lg:text-right">
             Two packages · {season.map((p) => `${p.durationDays} days`).join(" & ")}
             <br />
-            Bookings now open · Limited seats
+            Now taking enquiries · Limited seats
           </p>
         }
       >
         <WhatsAppButton message={topicEnquiry("the Hajj 2027 packages")} size="lg">
-          Reserve your place
+          Enquire about Hajj 2027
         </WhatsAppButton>
         <CallButton e164={site.contact.phones[0].e164} variant="outline-light" size="lg">
           Call {site.contact.phones[0].display}
@@ -147,10 +147,10 @@ export default async function Hajj2027Page() {
 
           <figure className="mt-24 grid items-center gap-10 md:grid-cols-[minmax(0,22rem)_1fr]" data-reveal>
             <div className="overflow-hidden rounded-xl shadow-[0_30px_60px_-30px_rgba(6,31,29,.6)]">
-              <Image src="/images/existing/hajj-2027-flyer.jpg" alt="Al-Safaa Hajj 2027 — bookings now open. 22 days and 14 days packages. Limited seats available." width={1080} height={1350} sizes="352px" className="h-auto w-full" />
+              <Image src="/images/existing/hajj-2027-flyer.jpg" alt="Al-Safaa Hajj 2027 announcement: 22 days and 14 days packages. Limited seats available." width={1080} height={1350} sizes="352px" className="h-auto w-full" />
             </div>
             <figcaption>
-              <p className="display display-sm">Reserve your place on the 2027 Hajj journey with Al-Safaa Travels &amp; Tours.</p>
+              <p className="display display-sm">Ask us about the 2027 Hajj journey with Al-Safaa Travels &amp; Tours.</p>
               <p className="mt-4 text-muted">
                 Call or WhatsApp {site.contact.whatsapp.display} · {site.address.street}, {site.address.locality}
               </p>

@@ -92,7 +92,7 @@ The Hajj 2027 itinerary and highlights were injected by JavaScript, so search en
 ## 5. Plan
 
 ### Keep
-All verified facts above. The Hajj 2027 URL and its full content. The Aviasales partnership (same marker). The YouTube talks. The Visit Sri Lanka copy and photos. The founders' story, vision and mission.
+All verified facts above. The Hajj 2027 URL and its full content. The Aviasales partnership (same marker), now as a plain outbound link. The embedded flight-search form was removed at the client's request because the site must not contain booking functionality. The YouTube talks. The Visit Sri Lanka copy and photos. The founders' story, vision and mission.
 
 ### Redesign
 The visual system, every layout, how packages are presented, the itinerary (accessible accordion timeline), navigation, and mobile.

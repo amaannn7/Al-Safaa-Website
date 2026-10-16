@@ -62,7 +62,7 @@ export default async function HajjPage() {
             ) : (
               <div className="rounded-[1.5rem] border hairline p-10 text-center">
                 <p className="display text-3xl">Our next Hajj packages are being prepared.</p>
-                <p className="mx-auto mt-3 max-w-lg text-muted">Message us to be among the first to hear when bookings open.</p>
+                <p className="mx-auto mt-3 max-w-lg text-muted">Message us to be among the first to hear when the next packages are announced.</p>
                 <WhatsAppButton message={hajjMessage} className="mt-8">
                   Notify me
                 </WhatsAppButton>

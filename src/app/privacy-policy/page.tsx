@@ -48,7 +48,7 @@ export default function PrivacyPage() {
             <h2>When you contact us</h2>
             <p>
               If you contact us by WhatsApp, phone or email, we receive the details you choose to share, such as your name, phone
-              number and the message itself. We use this only to answer your enquiry and, if you book with us, to arrange your
+              number and the message itself. We use this only to answer your enquiry and, if you travel with us, to arrange your
               travel — including passport, visa and flight details that the authorities and airlines require.
             </p>
             <p>
@@ -62,9 +62,8 @@ export default function PrivacyPage() {
             <p>Some pages include features provided by other companies:</p>
             <ul>
               <li>
-                <strong>Flight search</strong> is provided by our partner Aviasales (Travelpayouts). It loads when you scroll to it
-                and may set its own cookies. Searches and bookings you make there are subject to Aviasales&apos; terms and privacy
-                policy.
+                <strong>Flight comparison</strong> links take you to our partner Aviasales. Anything you do on their site is
+                subject to Aviasales&apos; own terms and privacy policy.
               </li>
               <li>
                 <strong>Videos</strong> are hosted on YouTube. Nothing is loaded from YouTube until you press play; the player
@@ -85,7 +84,7 @@ export default function PrivacyPage() {
             <h2>Who we share your data with</h2>
             <p>
               We strictly do not share your data with any other organisation, except with the government institutions where
-              required by law, and with the airlines, hotels and authorities needed to arrange a journey you have booked with us.
+              required by law, and with the airlines, hotels and authorities needed to arrange a journey you have arranged with us.
             </p>
           </section>
 

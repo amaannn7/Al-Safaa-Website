@@ -86,7 +86,7 @@ export default function ResourcesPage() {
       <section aria-labelledby="essentials" className="border-t hairline bg-sand-200/60 py-24 lg:py-32">
         <div className="shell grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5" data-reveal>
-            <p className="eyebrow">Before you book</p>
+            <p className="eyebrow">Before you travel</p>
             <h2 id="essentials" className="display display-md mt-4">
               The essentials, from our package terms.
             </h2>

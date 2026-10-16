@@ -20,7 +20,7 @@ export const services: Service[] = [
     slug: "flights",
     title: "Flight comparison",
     summary:
-      "Our partner Aviasales lets you compare and book cheap flights from over 1,000 airlines worldwide. Absolutely no hidden fees or markups.",
+      "Our partner Aviasales lets you compare cheap flights from over 1,000 airlines worldwide. Absolutely no hidden fees or markups.",
     confirmed: true,
     action: "aviasales",
   },
@@ -44,7 +44,7 @@ export const services: Service[] = [
   {
     slug: "hotels",
     title: "Hotel arrangements",
-    summary: "Hotel bookings in Makkah, Madinah and beyond.",
+    summary: "Hotel arrangements in Makkah, Madinah and beyond.",
     confirmed: false,
     action: "whatsapp",
   },
