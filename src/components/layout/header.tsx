@@ -50,7 +50,7 @@ export function Header() {
   }, [open]);
 
   const solid = scrolled && !open;
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href) || (href === "/hajj/" && pathname === "/hajj-2027/");
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href) || (href === "/hajj-2027/" && pathname.startsWith("/hajj/"));
 
   return (
     <header
@@ -68,7 +68,7 @@ export function Header() {
         )}
       />
       <div className={cn("shell relative flex items-center justify-between gap-6 transition-[height] duration-500", solid ? "h-[68px]" : "h-[84px]")}>
-        <Link href="/" aria-label="Al-Safaa Travels & Tours — home" className="relative z-10 shrink-0">
+        <Link href="/" aria-label="Al-Safaa Travels & Tours home page" className="relative z-10 shrink-0">
           <span className={cn("block transition-opacity duration-300", solid ? "opacity-0" : "opacity-100")}>
             <Logo reversed priority />
           </span>
@@ -145,7 +145,7 @@ export function Header() {
       >
         <nav aria-label="Mobile" className="shell flex min-h-full flex-col pb-10">
           <ul className="mt-6 border-t border-white/10">
-            {[{ href: "/", label: "Home" }, ...mainNav, { href: "/resources/", label: "Resources" }].map((item, i) => (
+            {[{ href: "/", label: "Home" }, ...mainNav].map((item, i) => (
               <li key={item.href} className="border-b border-white/10">
                 <Link
                   href={item.href}

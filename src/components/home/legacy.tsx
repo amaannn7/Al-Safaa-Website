@@ -1,15 +1,12 @@
 import Image from "next/image";
 import { ArrowLink } from "@/components/ui/button";
 import { site } from "@/config/site";
-import { getTodayInColombo } from "@/lib/today";
 
-export async function Legacy() {
-  const years = Number((await getTodayInColombo()).slice(0, 4)) - site.established;
-
+/** Excerpt of the old About page. */
+export function Legacy() {
   const stats = [
-    { value: String(site.established), label: "Founded in Colombo" },
-    { value: site.pilgrimsGuided, label: "Pilgrims guided to the Holy Cities" },
-    { value: String(years), label: "Years of Hajj & Umrah service" },
+    { value: String(site.established), label: "Founded" },
+    { value: site.pilgrimsGuided, label: "Travellers guided" },
   ];
 
   return (
@@ -25,29 +22,28 @@ export async function Legacy() {
               className="object-cover"
             />
           </div>
-          <p className="mt-4 text-center text-[0.75rem] tracking-[0.18em] text-muted uppercase lg:text-left">Masjid al-Haram, Makkah</p>
         </div>
 
         <div className="lg:col-span-7 lg:pt-16 lg:pl-8">
           <p className="eyebrow" data-reveal>
-            Our story · Since {site.established}
+            About us
           </p>
           <h2 id="legacy" className="display display-md mt-5" data-reveal>
-            Nearly three decades of guiding Sri Lankan pilgrims to the Two Holy Mosques.
+            A trusted name in Hajj and Umrah services.
           </h2>
           <div className="prose-calm lede mt-8 max-w-2xl text-muted" data-reveal>
             <p>
-              Founded in 1997 by {site.leadership.founders}, Al-Safaa has been a trusted name in Hajj and Umrah services for
-              more than two decades. As pioneers in organising group tours to the holy sites, we have had the honour of guiding
-              more than 3,000 travellers on their spiritual journeys.
+              Founded in 1997 by {site.leadership.founders}, our company has been a trusted name in Hajj and Umrah services
+              for over two decades. As pioneers in organizing group tours to the holy pilgrimage sites in Saudi Arabia, we have
+              had the honor of guiding more than 3,000 travelers on their spiritual journeys.
             </p>
             <p>
-              Now under the leadership of {site.leadership.current}, we continue to uphold the values our founders
-              established: exceptional service, attention to detail, and a deep understanding of what each pilgrim needs.
+              Now under the leadership of {site.leadership.current}, we continue to uphold the values and traditions established
+              by our founders.
             </p>
           </div>
 
-          <dl className="mt-14 grid grid-cols-1 border-t hairline xs:grid-cols-3" data-reveal-group>
+          <dl className="mt-14 grid grid-cols-1 border-t hairline xs:grid-cols-2" data-reveal-group>
             {stats.map((s) => (
               <div key={s.label} className="flex flex-col border-b hairline py-6 xs:border-b-0 xs:pr-6">
                 <dt className="order-2 mt-2 block text-[0.85rem] leading-snug text-muted">{s.label}</dt>
@@ -57,7 +53,7 @@ export async function Legacy() {
           </dl>
 
           <ArrowLink href="/about/" className="mt-10 text-ink-900">
-            Read our story
+            More about us
           </ArrowLink>
         </div>
       </div>

@@ -4,7 +4,7 @@
 @custom-variant on-dark (&:where(.on-dark, .on-dark *));
 
 /* ------------------------------------------------------------------ */
-/* Design tokens — "Calm authority"                                    */
+/* Design tokens: "Calm authority"                                    */
 /* Teal ink + warm sand, one gold accent. Contrast-checked pairs:      */
 /*   ink-900 on sand-100 13.6:1 · gold-700 on sand 5.0:1               */
 /*   gold-500 on ink-900 5.9:1  · ink-950 on gold-500 6.5:1            */
@@ -35,14 +35,26 @@
   --color-logo-blue: #1d499f;
   --color-whatsapp: #1fa855;
 
-  --font-display: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Satoshi", "Satoshi Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Satoshi", "Satoshi Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-arabic: var(--font-amiri), "Geeza Pro", serif;
 
   --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 
   --breakpoint-xs: 26rem;
+}
+
+/* Arial adjusted to Satoshi's metrics (upm 1000, ascent 1010, descent 240,
+   line gap 100; 99.43% of Arial's width), so text doesn't move when the
+   web font finishes loading. */
+@font-face {
+  font-family: "Satoshi Fallback";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  size-adjust: 99.43%;
+  ascent-override: 101.58%;
+  descent-override: 24.14%;
+  line-gap-override: 10.06%;
 }
 
 /* ------------------------------------------------------------------ */
@@ -156,7 +168,7 @@
     line-height: 1.65;
   }
 
-  /* The gold horizon line — the logo's underline, extended. */
+  /* The gold horizon line: the logo's underline, extended. */
   .horizon {
     display: block;
     height: 1px;
@@ -164,7 +176,7 @@
     transform-origin: left center;
   }
 
-  /* Arch — the colonnades of the Haram, used as an image frame. */
+  /* Arch: the colonnades of the Haram, used as an image frame. */
   .arch {
     border-radius: 999px 999px 0 0;
     overflow: hidden;
@@ -223,7 +235,11 @@
   details > summary::-webkit-details-marker {
     display: none;
   }
-  details[open] .chev {
+  /* Rotate the "+" icon, not its circle, so the box never grows wider. */
+  .chev svg {
+    transition: transform 300ms var(--ease-premium);
+  }
+  details[open] .chev svg {
     transform: rotate(45deg);
   }
   .details-body {

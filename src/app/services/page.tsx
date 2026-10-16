@@ -4,82 +4,40 @@ import { confirmedServices, sriLanka } from "@/data/services";
 import { PageHero } from "@/components/sections/page-hero";
 import { FinalCta } from "@/components/sections/final-cta";
 import { FlightsLink } from "@/components/media/flights-link";
-import { WhatsAppButton } from "@/components/ui/button";
-import { topicEnquiry } from "@/lib/contact";
 import { cn } from "@/lib/cn";
 
 /**
- * /services/ — keeps the old "Visit Sri Lanka" URL and content, and adds the
- * agency's flight-comparison partnership. Further services appear here once
- * confirmed in src/data/services.ts.
+ * /services/ keeps the old "Visit Sri Lanka" URL and its content, plus the
+ * flight-comparison partner link that was on the old home page.
  */
 export const metadata: Metadata = {
-  title: "Travel Services — Flights & Visit Sri Lanka",
+  title: "Visit Sri Lanka",
   description:
-    "Compare cheap flights from over 1,000 airlines with our partner Aviasales, and discover Sri Lanka — beaches, hill country, heritage and Halal-friendly hospitality — with Al-Safaa Travels & Tours.",
+    "Sri Lanka is a perfect holiday destination, offering a mix of stunning natural landscapes, rich cultural heritage, and Halal-friendly services.",
   alternates: { canonical: "/services/" },
   openGraph: { url: "/services/", images: [{ url: sriLanka.hero.src }] },
 };
 
 export default function ServicesPage() {
   const flights = confirmedServices.find((s) => s.slug === "flights");
-  const extra = confirmedServices.filter((s) => !["flights", "visit-sri-lanka"].includes(s.slug));
 
   return (
     <>
       <PageHero
-        eyebrow="Travel services"
-        title={
-          <>
-            Flights, and the island <em className="text-gold-400">we call home</em>.
-          </>
-        }
-        lede="Beyond Hajj and Umrah, we help travellers find good fares and discover Sri Lanka."
+        compact
+        eyebrow="Visit Sri Lanka"
+        title={sriLanka.title}
         image={sriLanka.hero}
-        crumbs={[{ name: "Travel services", path: "/services/" }]}
+        crumbs={[{ name: "Visit Sri Lanka", path: "/services/" }]}
       />
 
-      <section id="flights" aria-labelledby="flights-title" className="scroll-mt-24 py-24 lg:py-32">
-        <div className="shell grid gap-14 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5" data-reveal>
-            <p className="eyebrow">Flight comparison</p>
-            <h2 id="flights-title" className="display display-md mt-4">
-              Find cheap flight tickets easily.
-            </h2>
-            {flights && <p className="lede mt-6 text-muted">{flights.summary}</p>}
-          </div>
-          <div className="lg:col-span-6 lg:col-start-7" data-reveal>
-            <FlightsLink />
-          </div>
-        </div>
-      </section>
-
-      {extra.length > 0 && (
-        <section aria-label="More services" className="border-t hairline py-20">
-          <ul className="shell grid gap-8 md:grid-cols-3">
-            {extra.map((s) => (
-              <li key={s.slug} data-reveal>
-                <h2 className="display text-3xl">{s.title}</h2>
-                <p className="mt-3 text-muted">{s.summary}</p>
-                <WhatsAppButton message={topicEnquiry(s.title.toLowerCase())} variant="ink" size="sm" className="mt-5">
-                  Enquire
-                </WhatsAppButton>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <section id="visit-sri-lanka" aria-labelledby="sl-title" className="on-dark grain scroll-mt-24 bg-ink-900 py-24 text-white lg:py-32">
+      <section id="visit-sri-lanka" aria-labelledby="sl-title" className="scroll-mt-24 py-24 lg:py-32">
         <div className="shell">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-6" data-reveal>
-              <p className="eyebrow">Visit Sri Lanka</p>
-              <h2 id="sl-title" className="display display-lg mt-4">
-                {sriLanka.title}
-              </h2>
-            </div>
-            <p className="lede text-mist lg:col-span-6" data-reveal>
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <h2 id="sl-title" className="display display-md lg:col-span-4" data-reveal>
+              {sriLanka.heading}
+            </h2>
+            <p className="lede text-muted lg:col-span-8" data-reveal>
               {sriLanka.intro}
             </p>
           </div>
@@ -93,17 +51,25 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className={cn("md:col-span-6", i % 2 === 0 ? "lg:col-start-7" : "md:order-1 lg:col-start-1")} data-reveal>
-                  <span className="text-[0.75rem] font-bold text-gold-400 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="display mt-3 text-[2.5rem] leading-tight">{t.title}</h3>
-                  <p className="mt-4 leading-relaxed text-mist">{t.body}</p>
+                  <h3 className="display text-[2.25rem] leading-tight">{t.title}</h3>
+                  <p className="mt-4 leading-relaxed text-muted">{t.body}</p>
                 </div>
               </article>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-20 flex flex-col items-start gap-6 border-t border-white/12 pt-12 md:flex-row md:items-center md:justify-between" data-reveal>
-            <p className="display text-[2rem] leading-tight">Planning a visit to Sri Lanka?</p>
-            <WhatsAppButton message={topicEnquiry("a holiday in Sri Lanka")}>Talk to us</WhatsAppButton>
+      <section id="flights" aria-labelledby="flights-title" className="scroll-mt-24 border-t hairline bg-sand-200/70 py-24 lg:py-28">
+        <div className="shell grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-6" data-reveal>
+            <h2 id="flights-title" className="display display-md">
+              Find cheap flight tickets easily
+            </h2>
+            {flights && <p className="lede mt-6 text-muted">{flights.summary}</p>}
+          </div>
+          <div className="lg:col-span-6" data-reveal>
+            <FlightsLink />
           </div>
         </div>
       </section>

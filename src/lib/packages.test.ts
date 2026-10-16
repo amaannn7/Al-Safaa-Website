@@ -140,13 +140,13 @@ describe("pricing and enquiries", () => {
     expect(href.startsWith("https://wa.me/94717107887?text=")).toBe(true);
     const text = decodeURIComponent(href.split("?text=")[1]);
     expect(text).toBe(
-      "Assalamu Alaikum, I would like to enquire about the Hajj 2027 · 22 Days package (2 – 23 May 2027). Could you please share more details?",
+      "Assalamu Alaikum, I would like to enquire about the Hajj 2027 · 22 Days package (2 to 23 May 2027). Could you please share more details?",
     );
     expect(href).not.toMatch(/[ &#]/);
   });
   it("formats ranges across months and years", () => {
-    expect(formatRange("2026-10-22", "2026-10-31")).toBe("22 – 31 Oct 2026");
-    expect(formatRange("2026-12-28", "2027-01-06")).toBe("28 Dec 2026 – 6 Jan 2027");
+    expect(formatRange("2026-10-22", "2026-10-31")).toBe("22 to 31 Oct 2026");
+    expect(formatRange("2026-12-28", "2027-01-06")).toBe("28 Dec 2026 to 6 Jan 2027");
   });
   it("counts days between calendar dates", () => {
     expect(daysUntil("2026-10-22", "2026-10-17")).toBe(5);

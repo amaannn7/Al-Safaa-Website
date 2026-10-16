@@ -1,18 +1,17 @@
 import Image from "next/image";
 import { destinations, saudiIntro } from "@/data/destinations";
-import { ArrowLink, WhatsAppButton } from "@/components/ui/button";
+import { WhatsAppButton } from "@/components/ui/button";
 import { topicEnquiry } from "@/lib/contact";
 import { cn } from "@/lib/cn";
 
 export function SaudiExperiences() {
   return (
-    <section aria-labelledby="saudi" className="border-t hairline py-24 lg:py-36">
+    <section id="saudi" aria-labelledby="saudi-title" className="border-t hairline py-24 lg:py-36">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7" data-reveal>
-            <p className="eyebrow">Beyond the pilgrimage</p>
-            <h2 id="saudi" className="display display-lg mt-4">
-              Explore Saudi Arabia.
+            <h2 id="saudi-title" className="display display-lg">
+              Explore Saudi Arabia
             </h2>
           </div>
           <p className="lede text-muted lg:col-span-5" data-reveal>
@@ -29,10 +28,7 @@ export function SaudiExperiences() {
         </ul>
 
         <div className="mt-14 flex flex-wrap items-center gap-6">
-          <WhatsAppButton message={topicEnquiry("a Saudi Arabia tour")}>Plan a Saudi tour</WhatsAppButton>
-          <ArrowLink href="/saudi-tours/" className="text-ink-900">
-            Saudi tours
-          </ArrowLink>
+          <WhatsAppButton message={topicEnquiry("Saudi Arabia tours")}>Get in touch with us for more info</WhatsAppButton>
         </div>
       </div>
     </section>
@@ -52,7 +48,7 @@ function DestinationTile({ d }: { d: (typeof destinations)[number] }) {
             className="object-cover transition-transform duration-[1.4s] ease-(--ease-premium) group-hover:scale-[1.05]"
           />
         ) : (
-          // No licensed photograph of this destination yet — a typographic tile
+          // No licensed photograph of this destination yet: a typographic tile
           // rather than a misleading stand-in image.
           <div className="on-dark grain absolute inset-0 bg-[radial-gradient(120%_80%_at_80%_110%,#1d5e56_0%,#0c3d38_45%,#082826_100%)]">
             <svg aria-hidden viewBox="0 0 400 120" className="absolute inset-x-0 bottom-[22%] w-full text-gold-500/40" fill="none" stroke="currentColor">

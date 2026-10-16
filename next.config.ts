@@ -28,7 +28,9 @@ const nextConfig: NextConfig = {
       { source: "/wp-sitemap.xml", destination: "/sitemap.xml", statusCode: 301 },
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", statusCode: 301 },
       // Friendly aliases.
-      { source: "/hajj-packages/", destination: "/hajj/", statusCode: 301 },
+      // Hajj 2027 is the Hajj page while it is the only season on sale.
+      { source: "/hajj/", destination: "/hajj-2027/", permanent: false },
+      { source: "/hajj-packages/", destination: "/hajj-2027/", statusCode: 301 },
       { source: "/umrah-packages/", destination: "/umrah/", statusCode: 301 },
       { source: "/visit-sri-lanka/", destination: "/services/", statusCode: 301 },
       { source: "/about-us/", destination: "/about/", statusCode: 301 },

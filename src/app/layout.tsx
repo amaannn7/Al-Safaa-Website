@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en-GB" className={arabic.variable} suppressHydrationWarning>
       <head>
         {/* Satoshi (Indian Type Foundry), served by Fontshare as its licence
-            requires for a public repository — the files are not self-hosted. */}
+            requires for a public repository: the files are not self-hosted. */}
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" />

@@ -13,16 +13,17 @@ export interface Destination {
   image?: Image;
 }
 
+/** Verbatim from the old home page "Explore saudi arabia" section. */
 export const saudiIntro =
-  "The Kingdom of Saudi Arabia, renowned for Hajj and Umrah, offers a diverse range of destinations beyond its religious significance — from pristine Red Sea beaches to ancient rock-cut heritage and one of the fastest-changing capitals in the world.";
+  "The Kingdom of Saudi Arabia, renowned for Hajj and Umrah pilgrimages, offers a diverse range of tourist destinations beyond its religious significance. These destinations, along with many others, highlight Saudi Arabia's growing appeal as a dynamic and multifaceted travel destination.";
 
 export const destinations: Destination[] = [
   {
     slug: "alula",
     name: "AlUla",
-    epithet: "Ancient rock and desert heritage",
+    epithet: "Historic city",
     description:
-      "The historic city of AlUla, with its ancient rock formations and archaeological wonders, invites travellers to delve into the rich cultural heritage of the region.",
+      "The historic city of Al Ula, with its ancient rock formations and archaeological wonders, invites travelers to delve into the rich cultural heritage of the region.",
     image: {
       src: "/images/photos/alula-elephant-rock.jpg",
       alt: "Elephant Rock, a natural sandstone arch in the desert near AlUla",
@@ -34,13 +35,13 @@ export const destinations: Destination[] = [
     name: "Umluj",
     epithet: "The “Saudi Maldives”",
     description:
-      "Visitors can explore the pristine beaches of Umluj on the Red Sea coast, often referred to as the “Saudi Maldives”.",
+      "Visitors can explore the pristine beaches of Umluj, often referred to as the “Saudi Maldives.”",
   },
   {
     slug: "riyadh",
     name: "Riyadh",
-    epithet: "A capital in transformation",
-    description: "Experience the rapidly transforming, high-tech capital city of Riyadh.",
+    epithet: "High-tech city",
+    description: "Experience the rapidly transforming high-tech city of Riyadh.",
     image: {
       src: "/images/photos/riyadh-kingdom-centre.jpg",
       alt: "The Kingdom Centre tower in Riyadh against a pink evening sky",

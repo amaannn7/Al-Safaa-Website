@@ -10,11 +10,10 @@ Open `src/data/packages.ts` and add an entry to the `packages` array. The quicke
 
 ```ts
 {
-  slug: "umrah-december-2026",        // becomes /umrah/umrah-december-2026/ — never change it once published
+  slug: "umrah-december-2026",        // becomes /umrah/umrah-december-2026/: never change it once published
   type: "umrah",                      // "hajj" or "umrah"
   status: "published",                // "draft" (hidden) · "published" · "cancelled" (hidden everywhere)
   availability: "open",               // "open" · "limited" · "sold-out" · "unknown" (shows no label)
-  featured: true,                     // also show it in the home page "Featured journeys"
   title: "December Umrah 2026 · 12 Days",
   season: "Umrah · December 2026",    // packages with the same season are grouped together
   tagline: "…",
@@ -43,8 +42,8 @@ Then run `npm test`. It checks that slugs are unique, dates are in order and dur
 
 The new package appears automatically on:
 
-- the home page departures board, hero "next departure" and featured spreads
-- the Hajj or Umrah listing page
+- the home page departures board and hero "next departure"
+- the Hajj 2027 page (Hajj) or the Umrah page (Umrah)
 - its own detail page, the sitemap and the structured data
 
 **No other file needs editing.**

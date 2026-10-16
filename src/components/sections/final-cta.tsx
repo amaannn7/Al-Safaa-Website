@@ -4,8 +4,8 @@ import { site } from "@/config/site";
 import { generalEnquiry } from "@/lib/contact";
 
 export function FinalCta({
-  title = "Begin with a conversation.",
-  body = "Tell us when you hope to travel and who will be joining you. We will walk you through the options — on WhatsApp, by phone, or in person at our Colombo office.",
+  title = "Get in touch with us for more info",
+  body,
   message = generalEnquiry,
   image = { src: "/images/photos/madinah-minarets.jpg", alt: "Minarets of Masjid an-Nabawi against a soft evening sky" },
 }: {
@@ -25,22 +25,21 @@ export function FinalCta({
       </div>
       <div className="shell py-28 lg:py-40">
         <div className="max-w-2xl">
-          <p className="eyebrow" data-reveal>
-            Enquire
-          </p>
-          <h2 id="begin" className="display display-lg mt-5" data-reveal>
+          <h2 id="begin" className="display display-lg" data-reveal>
             {title}
           </h2>
-          <p className="lede mt-6 text-white/80" data-reveal>
-            {body}
-          </p>
+          {body && (
+            <p className="lede mt-6 text-white/80" data-reveal>
+              {body}
+            </p>
+          )}
           <div className="mt-10 flex flex-wrap gap-3" data-reveal>
             <WhatsAppButton message={message} size="lg">
               WhatsApp {site.contact.whatsapp.display}
             </WhatsAppButton>
             <CallButton e164={site.contact.phones[0].e164} variant="outline-light" size="lg" />
             <LinkButton href="/contact/" variant="text" size="lg" className="text-white" arrow>
-              Visit us
+              Contact
             </LinkButton>
           </div>
         </div>

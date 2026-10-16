@@ -21,7 +21,7 @@ export interface ReviewSummary {
 }
 
 /**
- * Live Google reviews via the Places API (New) — only when
+ * Live Google reviews via the Places API (New): only when
  * GOOGLE_PLACES_API_KEY is set. Google returns at most 5 reviews; its terms
  * require showing the author attribution and linking back, which the
  * Reviews component does. Cached for a day.

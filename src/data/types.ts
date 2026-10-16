@@ -51,10 +51,9 @@ export interface TourPackage {
   type: PackageType;
   status: PublishStatus;
   availability: Availability;
-  featured?: boolean;
 
   title: string;
-  /** e.g. "Hajj 2027" — groups related packages together. */
+  /** e.g. "Hajj 2027": groups related packages together. */
   season: string;
   tagline: string;
   summary: string;
@@ -80,8 +79,6 @@ export interface TourPackage {
   notices: string[];
 
   image: Image;
-  /** The agency's own promotional artwork for this departure. */
-  flyer?: Image;
   /** Where the information was taken from, for future audits. */
   source: string;
 }

@@ -15,12 +15,12 @@ import { DateBlock, FromPrice, packageHref, typeLabel } from "./bits";
 import { EnquiryCard } from "./enquiry-card";
 import { HighlightList, IncludesExcludes, ItineraryTimeline, Notices, PriceTable, StayList } from "./detail-parts";
 
-const listing = { hajj: { name: "Hajj", path: "/hajj/" }, umrah: { name: "Umrah", path: "/umrah/" }, tour: { name: "Saudi Tours", path: "/saudi-tours/" } } as const;
+const listing = { hajj: { name: "Hajj 2027", path: "/hajj-2027/" }, umrah: { name: "Umrah", path: "/umrah/" }, tour: { name: "Home", path: "/" } } as const;
 
 export function packageMetadata(pkg: TourPackage): Metadata {
   const dates = pkg.departure && pkg.return ? ` ${formatRange(pkg.departure, pkg.return)}.` : "";
   const from = startingPrice(pkg);
-  const description = `${pkg.title} from Colombo with Al-Safaa Travels & Tours.${dates} ${pkg.stays.map((s) => s.hotel).join(", ")}.${from ? ` From ${pkg.currency} ${from.toLocaleString("en-LK")} per person.` : ""}`;
+  const description = `${pkg.title} from Colombo with Al-Safaa Travels & Tours.${dates} ${pkg.stays.map((s) => s.hotel).join(", ")}.${from ? ` From ${pkg.currency} ${from.toLocaleString("en-LK")}.` : ""}`;
   const path = packageHref(pkg);
   return {
     title: `${pkg.title} Package from Sri Lanka`,
@@ -54,7 +54,7 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
           pkg.return && (
             <div className="flex items-end gap-6 border-l border-white/20 pl-6 lg:justify-self-end">
               <DateBlock date={pkg.departure} today={today} />
-              <span className="mb-3 text-white/40">—</span>
+              <span aria-hidden className="mb-5 h-px w-6 bg-white/40" />
               <DateBlock date={pkg.return} />
             </div>
           )
@@ -134,9 +134,6 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
             <h2 id="prices" className="display display-md" data-reveal>
               Prices
             </h2>
-            <p className="mt-3 text-muted" data-reveal>
-              Per person, by room sharing.
-            </p>
             <div className="mt-8" data-reveal>
               <PriceTable pkg={pkg} />
             </div>
@@ -144,26 +141,28 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
 
           <section aria-labelledby="stay">
             <h2 id="stay" className="display display-md" data-reveal>
-              Where you&apos;ll stay
+              Accommodation
             </h2>
             <div className="mt-8">
               <StayList stays={pkg.stays} />
             </div>
           </section>
 
-          <section aria-labelledby="itinerary">
-            <h2 id="itinerary" className="display display-md" data-reveal>
-              {pkg.itinerary.some((i) => i.date) ? "Day by day" : "Journey outline"}
-            </h2>
-            <div className="mt-10">
-              <ItineraryTimeline items={pkg.itinerary} note={pkg.itineraryNote} />
-            </div>
-          </section>
+          {pkg.itinerary.length > 0 && (
+            <section aria-labelledby="itinerary">
+              <h2 id="itinerary" className="display display-md" data-reveal>
+                Tour Itinerary
+              </h2>
+              <div className="mt-10">
+                <ItineraryTimeline items={pkg.itinerary} note={pkg.itineraryNote} />
+              </div>
+            </section>
+          )}
 
           {pkg.highlights.length > 0 && (
             <section aria-labelledby="highlights">
               <h2 id="highlights" className="display display-md" data-reveal>
-                Package highlights
+                Package Highlights
               </h2>
               <div className="mt-8">
                 <HighlightList items={pkg.highlights} />
@@ -173,7 +172,7 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
 
           <section aria-labelledby="covered">
             <h2 id="covered" className="display display-md" data-reveal>
-              What&apos;s covered
+              What&apos;s Covered
             </h2>
             <div className="mt-8">
               <IncludesExcludes pkg={pkg} />
@@ -181,21 +180,10 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
           </section>
 
           <Notices items={pkg.notices.filter((n) => n !== pkg.itineraryNote)} />
-
-          {pkg.flyer && (
-            <figure className="grid items-center gap-8 sm:grid-cols-[minmax(0,18rem)_1fr]" data-reveal>
-              <div className="overflow-hidden rounded-xl shadow-[0_24px_50px_-28px_rgba(6,31,29,.6)]">
-                <Image src={pkg.flyer.src} alt={pkg.flyer.alt} width={1080} height={1350} sizes="288px" className="h-auto w-full" />
-              </div>
-              <figcaption className="text-muted">
-                <span className="eyebrow block">From our announcement</span>
-                <span className="mt-3 block">The official flyer for this departure, as shared on our social channels.</span>
-              </figcaption>
-            </figure>
-          )}
         </div>
 
-        <aside className="hidden lg:col-span-4 lg:block">
+        <aside
+ className="hidden lg:col-span-4 lg:block">
           <div className="sticky top-28">
             <EnquiryCard pkg={pkg} today={today} />
           </div>
@@ -206,7 +194,7 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
         <section aria-labelledby="related" className="border-t hairline bg-sand-200/60 py-20 lg:py-24">
           <div className="shell">
             <h2 id="related" className="display display-md" data-reveal>
-              You may also consider
+              Upcoming group tours
             </h2>
             <ul className="mt-10 grid gap-8 md:grid-cols-2" data-reveal-group>
               {related.map((r) => (
@@ -264,7 +252,7 @@ function tripSchema(pkg: TourPackage, today: IsoDate) {
       itemListElement: pkg.itinerary.map((it, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        name: it.date ? `${formatDate(it.date)} — ${it.title}` : it.title,
+        name: it.date ? `${formatDate(it.date)}: ${it.title}` : it.title,
         description: it.detail,
       })),
     },

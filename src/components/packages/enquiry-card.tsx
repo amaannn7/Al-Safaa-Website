@@ -45,9 +45,6 @@ export function EnquiryCard({ pkg, today }: { pkg: TourPackage; today: IsoDate }
           <CallButton e164={site.contact.phones[0].e164} variant="outline-light" size="lg" className="w-full">
             Call {site.contact.phones[0].display}
           </CallButton>
-          <p className="mt-2 text-center text-[0.8rem] text-mist-dim">
-            Your message is prefilled with this package — just press send.
-          </p>
         </div>
       ) : (
         <p className="mt-8 rounded-xl bg-white/6 p-4 text-sm text-mist">

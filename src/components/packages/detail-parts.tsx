@@ -11,14 +11,14 @@ export function PriceTable({ pkg }: { pkg: TourPackage }) {
   return (
     <div>
       <table className="w-full text-left">
-        <caption className="sr-only">Prices per person in {pkg.currency}</caption>
+        <caption className="sr-only">Prices in {pkg.currency}</caption>
         <thead>
           <tr className="text-[0.7rem] font-bold tracking-[0.2em] text-muted uppercase">
             <th scope="col" className="pb-3 font-bold">
-              Room sharing
+              Room
             </th>
             <th scope="col" className="pb-3 text-right font-bold">
-              Per person ({pkg.currency})
+              {pkg.currency}
             </th>
           </tr>
         </thead>
@@ -45,7 +45,13 @@ export function PriceTable({ pkg }: { pkg: TourPackage }) {
 
 export function StayList({ stays }: { stays: Stay[] }) {
   return (
-    <ol className="grid gap-px overflow-hidden rounded-[1.25rem] border hairline bg-[color-mix(in_oklab,var(--color-ink-900)_14%,transparent)] sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+    <ol
+      className={cn(
+        "grid gap-px overflow-hidden rounded-[1.25rem] border hairline bg-[color-mix(in_oklab,var(--color-ink-900)_14%,transparent)] sm:grid-cols-2",
+        stays.length >= 3 && "lg:grid-cols-3",
+      )}
+      data-reveal-group
+    >
       {stays.map((s, i) => (
         <li key={`${s.hotel}-${i}`} className="flex flex-col bg-sand-50 p-6 lg:p-7">
           <span className="text-[0.7rem] font-bold tracking-[0.2em] text-gold-700 uppercase">
@@ -76,7 +82,7 @@ export function StayList({ stays }: { stays: Stay[] }) {
 }
 
 /* ----------------------------------------------------------------------- */
-/* Itinerary — vertical timeline of native <details> (works without JS)     */
+/* Itinerary: vertical timeline of native <details> (works without JS)     */
 /* ----------------------------------------------------------------------- */
 
 export function ItineraryTimeline({ items, note }: { items: ItineraryItem[]; note?: string }) {
@@ -140,12 +146,12 @@ export function HighlightList({ items, dark = false }: { items: Highlight[]; dar
     <div className={cn("border-t", dark ? "border-white/12" : "hairline")}>
       {items.map((h, i) => (
         <details key={h.title} className={cn("group border-b", dark ? "border-white/12" : "hairline")} open={i === 0}>
-          <summary className="flex items-center justify-between gap-6 py-6">
-            <span className="flex items-baseline gap-5">
+          <summary className="flex items-center justify-between gap-4 py-6">
+            <span className="flex min-w-0 items-baseline gap-4 sm:gap-5">
               <span className={cn("text-[0.75rem] font-bold tabular-nums", dark ? "text-gold-400" : "text-gold-700")}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="display text-[1.75rem] leading-tight sm:text-[2rem]">{h.title}</span>
+              <span className="display text-[1.5rem] leading-tight sm:text-[2rem]">{h.title}</span>
             </span>
             <span className={cn("chev inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-transform duration-300", dark ? "border-white/20" : "hairline")}>
               <Plus size={16} aria-hidden />

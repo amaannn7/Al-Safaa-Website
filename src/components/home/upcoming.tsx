@@ -18,14 +18,13 @@ export async function Upcoming() {
       <div className="shell">
         <div className="mb-14 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div data-reveal>
-            <p className="eyebrow">Upcoming group departures</p>
-            <h2 id="upcoming" className="display display-md mt-4 max-w-3xl">
-              Travel together, with a group that knows the way.
+            <h2 id="upcoming" className="display display-md max-w-3xl">
+              Upcoming group tours
             </h2>
           </div>
           <div className="flex gap-8" data-reveal>
-            <ArrowLink href="/hajj/" className="text-white">
-              Hajj
+            <ArrowLink href="/hajj-2027/" className="text-white">
+              Hajj 2027
             </ArrowLink>
             <ArrowLink href="/umrah/" className="text-white">
               Umrah

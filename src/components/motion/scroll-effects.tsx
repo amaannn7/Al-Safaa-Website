@@ -12,21 +12,21 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
  * Site-wide motion, declared with data attributes so pages stay server
  * components:
  *
- *   data-hero-item     hero copy — rises in on load, staggered
+ *   data-hero-item     hero copy: rises in on load, staggered
  *   data-hero-rise     hero copy that is never hidden (it's usually the LCP
- *                      element) — moves into place only
- *   data-hero-media    hero image — settles from a slight zoom
- *   data-horizon       gold rule — draws left to right on scroll
+ *                      element): moves into place only
+ *   data-hero-media    hero image: settles from a slight zoom
+ *   data-horizon       gold rule: draws left to right on scroll
  *   data-reveal        fades and rises once on scroll
  *   data-reveal-group  its direct children reveal in sequence
- *   data-reveal-image  image wrapper — unmasks upward, image settles
+ *   data-reveal-image  image wrapper: unmasks upward, image settles
  *   data-parallax      image drifts gently while scrolling (desktop only)
  *
  * Scroll reveals animate opacity only (never visibility), so content that
  * hasn't been scrolled to yet stays in the accessibility tree.
  *
- * Motion personality: "Premium" (motion-design skill) — one easing family,
- * no overshoot, 0.6–1.2s for reveals. Everything is skipped when the visitor
+ * Motion personality: "Premium" (motion-design skill): one easing family,
+ * no overshoot, 0.6 to 1.2s for reveals. Everything is skipped when the visitor
  * prefers reduced motion.
  */
 const EASE = "power3.out";

@@ -19,12 +19,7 @@ export default function ContactPage() {
       <PageHero
         compact
         eyebrow="Contact"
-        title={
-          <>
-            We&apos;d be glad to <em className="text-gold-400">hear from you</em>.
-          </>
-        }
-        lede="WhatsApp is the quickest way to reach us. You are also welcome to call, email or visit our Colombo office."
+        title="Get in touch with us"
         image={{ src: "/images/photos/dates-and-coffee.jpg", alt: "Dates and an Arabic coffee pot" }}
         crumbs={[{ name: "Contact", path: "/contact/" }]}
       />
@@ -32,20 +27,17 @@ export default function ContactPage() {
       <section className="py-20 lg:py-28">
         <div className="shell grid gap-14 lg:grid-cols-12">
           <div className="space-y-12 lg:col-span-5">
-            {/* WhatsApp — primary */}
+            {/* WhatsApp: primary */}
             <div className="on-dark grain rounded-[1.5rem] bg-ink-900 p-8 text-white sm:p-10" data-reveal>
               <WhatsAppIcon size={28} className="text-gold-400" />
-              <h2 className="display mt-6 text-[2.4rem] leading-tight">Message us on WhatsApp</h2>
-              <p className="mt-3 text-mist">
-                Send us your questions about Hajj, Umrah or travel and our team will reply on WhatsApp.
-              </p>
+              <h2 className="display mt-6 text-[2.4rem] leading-tight">We&apos;re on WhatsApp!</h2>
               <WhatsAppButton message={generalEnquiry} size="lg" className="mt-8 w-full sm:w-auto">
                 {site.contact.whatsapp.display}
               </WhatsAppButton>
             </div>
 
             <div data-reveal>
-              <h2 className="eyebrow">Call us</h2>
+              <h2 className="eyebrow">Call Us</h2>
               <ul className="mt-4 divide-y hairline border-y hairline">
                 {site.contact.phones.map((p) => (
                   <li key={p.e164}>
@@ -63,13 +55,13 @@ export default function ContactPage() {
 
             <div className="grid gap-10 sm:grid-cols-2" data-reveal>
               <div>
-                <h2 className="eyebrow">Email</h2>
+                <h2 className="eyebrow">Email Us</h2>
                 <a href={`mailto:${site.contact.email}`} className="mt-4 flex items-center gap-2 font-semibold hover:text-gold-700">
                   <Mail size={17} strokeWidth={1.6} aria-hidden /> {site.contact.email}
                 </a>
               </div>
               <div>
-                <h2 className="eyebrow">Follow us</h2>
+                <h2 className="eyebrow">Follow Us</h2>
                 <ul className="mt-4 flex gap-2">
                   {site.social.map((s) => {
                     const Icon = socialIcons[s.name];
@@ -93,7 +85,7 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-7" data-reveal>
-            <h2 className="eyebrow">Visit our office</h2>
+            <h2 className="eyebrow">Address</h2>
             <address className="mt-4 flex items-start gap-3 not-italic">
               <MapPin size={20} strokeWidth={1.6} className="mt-1.5 shrink-0 text-gold-700" aria-hidden />
               <span className="display text-[2rem] leading-tight">

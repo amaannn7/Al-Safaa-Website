@@ -89,6 +89,15 @@ The Hajj 2027 itinerary and highlights were injected by JavaScript, so search en
 - No Umrah page. Typo "Afordable" on the home page. Emoji used as icons.
 - The privacy policy is WordPress boilerplate about comments and Gravatar, which doesn't reflect how the site actually works.
 
+## 4b. Scope decision (17 Oct 2026)
+
+The client asked that the new site add **no information beyond the old website**. The site was cut back to match:
+
+- **Pages:** Home, About us, Hajj 2027 (with the two package pages), Umrah (with its package page), Visit Sri Lanka (`/services/`), Contact, Privacy Policy. Removed: Resources/YouTube talks, Saudi Tours page, Gallery, Photo credits page, and the separate Hajj listing page (`/hajj/` now redirects to `/hajj-2027/`).
+- **Copy:** headings and text are the old site's own wording (for example "Upcoming group tours", "Explore Saudi Arabia", "Find cheap flight tickets easily", "Get in touch with us for more info", "Tour Itinerary", "Package Highlights", "What's Covered"). Marketing lines written for the redesign were removed.
+- **Kept, although not on the old site as text:** "Umrah" in the menu (the old Umrah package was only in a popup), the date and price layout, and links to the existing hotel maps.
+- **No embedded booking or search widgets.** Flight comparison is a plain partner link.
+
 ## 5. Plan
 
 ### Keep
@@ -112,7 +121,7 @@ Genuine reviews, group photos with consent, a team photo, opening hours, an answ
 - **Palette:** deep teal ink (#082826 / #0C3D38) as the main surface, warm sand neutrals (#FAF6EC / #F1EADB), gold (#C8963E) as the single accent. The logo's royal blue appears only in the logo.
 - **Type:** *Satoshi* (Indian Type Foundry) for everything, following the client's reference design: light weight with an italic accent for the hero statement, medium weight with tight tracking for headings, regular for body text. It loads from Fontshare's API because the ITF licence forbids putting the font files in a public repository. *Amiri* is used only for the one verified Arabic phrase (the opening of the Talbiyah, set right to left with its translation).
 - **Signature motif:** the logo's swoosh and underline become a thin gold "horizon line" that draws in on scroll and divides sections. The other architectural cue is the arch of the Haram's colonnades, used as an image mask in a few places. No pattern wallpaper.
-- **Layout:** editorial and asymmetric. Upcoming departures look like a refined departures board, not a card grid. Featured packages appear as alternating magazine spreads. Dates use large serif numerals.
+- **Layout:** editorial and asymmetric. Upcoming departures look like a refined departures board, not a card grid. Dates use large serif numerals.
 - **Motion** (GSAP, following the motion-design skill's "Premium" personality: 350–600 ms, no overshoot, a single easing curve): hero text rises line by line, the horizon line draws in, images reveal from their mask, and the hero has light parallax. All of this is turned off when the visitor has requested reduced motion.
 
 ### Tooling decisions

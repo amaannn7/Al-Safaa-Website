@@ -3,36 +3,16 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { WhatsAppIcon, socialIcons } from "@/components/icons";
 import { site } from "@/config/site";
-import { galleryIsPublished } from "@/data/gallery";
 import { generalEnquiry, telHref, whatsappHref } from "@/lib/contact";
 import { getTodayInColombo } from "@/lib/today";
 
-const columns = [
-  {
-    title: "Pilgrimage",
-    links: [
-      { href: "/hajj/", label: "Hajj packages" },
-      { href: "/hajj-2027/", label: "Hajj 2027" },
-      { href: "/umrah/", label: "Umrah packages" },
-      { href: "/resources/", label: "Preparing for your journey" },
-    ],
-  },
-  {
-    title: "Travel",
-    links: [
-      { href: "/saudi-tours/", label: "Saudi Arabia tours" },
-      { href: "/services/", label: "Flights & travel services" },
-      { href: "/services/#visit-sri-lanka", label: "Visit Sri Lanka" },
-    ],
-  },
-  {
-    title: "Al-Safaa",
-    links: [
-      { href: "/about/", label: "About us" },
-      ...(galleryIsPublished ? [{ href: "/gallery/", label: "Gallery & testimonials" }] : []),
-      { href: "/contact/", label: "Contact" },
-    ],
-  },
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About us" },
+  { href: "/hajj-2027/", label: "Hajj 2027" },
+  { href: "/umrah/", label: "Umrah" },
+  { href: "/services/", label: "Visit Sri Lanka" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export async function Footer() {
@@ -45,8 +25,7 @@ export async function Footer() {
           <div className="lg:col-span-4">
             <Logo reversed className="w-[176px]!" />
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed">
-              Hajj and Umrah specialists in Colombo since {site.established}. Founded by {site.leadership.founders}, and
-              today led by {site.leadership.current}.
+              A trusted name in Hajj and Umrah services since {site.established}.
             </p>
             <ul className="mt-8 flex gap-2" aria-label="Social media">
               {site.social.map((s) => {
@@ -68,25 +47,21 @@ export async function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-5">
-            {columns.map((col) => (
-              <div key={col.title}>
-                <h2 className="eyebrow">{col.title}</h2>
-                <ul className="mt-5 space-y-3 text-[0.95rem]">
-                  {col.links.map((l) => (
-                    <li key={l.href}>
-                      <Link href={l.href} className="link-draw text-white/85 hover:text-white">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <nav aria-label="Footer" className="lg:col-span-5">
+            <h2 className="eyebrow">Menu</h2>
+            <ul className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-[0.95rem]">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="link-draw text-white/85 hover:text-white">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
           <div className="lg:col-span-3">
-            <h2 className="eyebrow">Visit or call</h2>
+            <h2 className="eyebrow">Get in touch with us</h2>
             <address className="mt-5 space-y-4 text-[0.95rem] not-italic">
               <a href={site.google.profileUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 text-white/85 hover:text-white">
                 <MapPin size={17} strokeWidth={1.6} className="mt-0.5 shrink-0 text-gold-400" aria-hidden />
@@ -126,17 +101,12 @@ export async function Footer() {
         <span className="horizon mt-16 opacity-60" aria-hidden />
         <div className="mt-8 flex flex-col gap-4 text-[0.8rem] text-mist-dim sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.name}. All rights reserved.
+            Copyright © {year} {site.name}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
               <Link href="/privacy-policy/" className="hover:text-white">
                 Privacy policy
-              </Link>
-            </li>
-            <li>
-              <Link href="/photo-credits/" className="hover:text-white">
-                Photo credits
               </Link>
             </li>
           </ul>

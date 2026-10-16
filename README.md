@@ -1,6 +1,6 @@
 # Al-Safaa Travels & Tours: website
 
-The website for [Al-Safaa Travels & Tours](https://flyalsafaa.com), Hajj and Umrah specialists in Colombo since 1997. It's an informational site whose job is to generate enquiries. There is no booking engine, database, CMS, login or payment. Visitors enquire by WhatsApp, phone or email.
+The website for [Al-Safaa Travels & Tours](https://flyalsafaa.com), Hajj and Umrah specialists in Colombo since 1997. It's an informational site whose job is to generate enquiries. Its content mirrors the previous WordPress site: nothing is added that the old site didn't say. There is no booking engine, database, CMS, login or payment. Visitors enquire by WhatsApp, phone or email.
 
 **Stack:** Next.js 16 (App Router, Cache Components) · TypeScript · Tailwind CSS v4 · GSAP · Lucide · Vitest. Built for Vercel.
 
@@ -23,11 +23,9 @@ Node 24 or later.
 |---|---|
 | Phone numbers, WhatsApp, address, email, social links, Aviasales partner IDs | `src/config/site.ts` |
 | **Every Hajj and Umrah package** (dates, prices, hotels, itinerary, inclusions) | `src/data/packages.ts` |
-| Saudi destinations | `src/data/destinations.ts` |
-| Travel services, plus the Visit Sri Lanka copy | `src/data/services.ts` |
-| YouTube talks | `src/data/media.ts` |
-| Testimonials (genuine reviews only) | `src/data/testimonials.ts` |
-| Gallery photos (the gallery page stays hidden until there are at least 6) | `src/data/gallery.ts` |
+| Saudi destinations (home page) | `src/data/destinations.ts` |
+| Flights partner line + Visit Sri Lanka copy | `src/data/services.ts` |
+| Testimonials (genuine reviews only; section hidden while empty) | `src/data/testimonials.ts` |
 | Photo credits | `src/data/credits.ts` |
 | Date rules for "upcoming departures" | `src/lib/packages.ts` (tested in `packages.test.ts`) |
 

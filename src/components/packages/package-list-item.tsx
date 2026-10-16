@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 import { FromPrice, StatusPill, packageHref } from "./bits";
 
 /**
- * A package on the Hajj / Umrah listing pages — an editorial spread with the
+ * A package on the Hajj / Umrah listing pages: an editorial spread with the
  * image in an arch, alternating sides.
  */
 export function PackageListItem({ pkg, today, flip = false }: { pkg: TourPackage; today: IsoDate; flip?: boolean }) {

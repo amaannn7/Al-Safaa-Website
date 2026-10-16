@@ -2,7 +2,7 @@ import { timeZone } from "@/config/site";
 import type { IsoDate, PackageType, TourPackage } from "@/data/types";
 
 /**
- * Pure package logic. Nothing in this file reads the clock — callers pass in
+ * Pure package logic. Nothing in this file reads the clock: callers pass in
  * `today` (a Sri Lanka calendar date) so the rules are easy to test and the
  * rendering layer decides how fresh "today" needs to be.
  */
@@ -100,7 +100,7 @@ export function canEnquire(p: TourPackage, today: IsoDate): boolean {
   return (phase === "upcoming" || phase === "dates-tbc") && p.availability !== "sold-out";
 }
 
-/** Lowest adult price — the honest "from" figure. */
+/** Lowest adult price: the honest "from" figure. */
 export function startingPrice(p: TourPackage): number | null {
   const adult = p.prices.filter((t) => !t.kind || t.kind === "adult").map((t) => t.amount);
   return adult.length ? Math.min(...adult) : null;

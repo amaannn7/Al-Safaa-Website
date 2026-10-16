@@ -1,6 +1,6 @@
 /**
  * Photography credits. All photos below are used under the Unsplash License
- * (free for commercial use; attribution appreciated, not required — we credit
+ * (free for commercial use; attribution appreciated, not required: we credit
  * anyway). Verified and downloaded 17 Oct 2026. Images under /images/existing
  * came from the agency's own WordPress media library; confirm their licences
  * with the agency before launch (see docs/03-launch-checklist.md).

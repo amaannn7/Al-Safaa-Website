@@ -61,7 +61,6 @@ export function FromPrice({ pkg, className, size = "md" }: { pkg: TourPackage; c
     <span className={cn("block leading-none", className)}>
       <span className="block text-[0.7rem] font-bold tracking-[0.2em] uppercase opacity-70">From {pkg.currency}</span>
       <span className={cn("display mt-1.5 block tabular-nums", size === "lg" ? "text-5xl" : "text-[2rem]")}>{formatAmount(from)}</span>
-      <span className="mt-1.5 block text-[0.75rem] opacity-70">per person</span>
     </span>
   );
 }

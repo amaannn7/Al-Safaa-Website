@@ -10,9 +10,8 @@ export function TravelServices() {
     <section aria-labelledby="flights" className="bg-sand-200/70 py-24 lg:py-32">
       <div className="shell grid gap-14 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-6" data-reveal>
-          <p className="eyebrow">Flights &amp; travel</p>
-          <h2 id="flights" className="display display-md mt-4">
-            Find good fares, without hidden fees.
+          <h2 id="flights" className="display display-md">
+            Find cheap flight tickets easily
           </h2>
           {flights && <p className="lede mt-6 text-muted">{flights.summary}</p>}
         </div>

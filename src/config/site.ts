@@ -1,6 +1,6 @@
 /**
  * Central business details. Every page, CTA and structured-data block reads
- * from here — change a number or address once and it updates site-wide.
+ * from here: change a number or address once and it updates site-wide.
  *
  * Items marked NEEDS CONFIRMATION conflict across the company's own published
  * material; see docs/01-audit-and-plan.md §2.
@@ -11,7 +11,7 @@ export const site = {
   shortName: "Al-Safaa",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://flyalsafaa.com",
   established: 1997,
-  /** "more than 3,000 travelers" — company-stated on the About page. */
+  /** "more than 3,000 travelers": company-stated on the About page. */
   pilgrimsGuided: "3,000+",
   description:
     "Hajj and Umrah specialists in Colombo, Sri Lanka since 1997. Organised group pilgrimages with carefully chosen accommodation, transport and experienced guidance.",
@@ -27,7 +27,7 @@ export const site = {
     ],
   },
 
-  /** Confirmed by the client (17 Oct 2026). The Google profile still says R. A. De Mel Mawatha — same corner office. */
+  /** Confirmed by the client (17 Oct 2026). The Google profile still says R. A. De Mel Mawatha: same corner office. */
   address: {
     street: "26, Vajira Road",
     locality: "Colombo 04",
@@ -63,18 +63,18 @@ export const site = {
   aviasales: {
     marker: "419143",
     trs: "217323",
-    /** Outbound partner link only — no embedded search or booking form. */
+    /** Outbound partner link only: no embedded search or booking form. */
     partnerHref: "https://www.aviasales.com/?marker=419143",
   },
 } as const;
 
 export const timeZone = "Asia/Colombo";
 
+/** The old site's menu (Home, About us, Hajj 2027, Visit Sri Lanka, Contact) plus Umrah. */
 export const mainNav = [
-  { href: "/hajj/", label: "Hajj" },
+  { href: "/about/", label: "About us" },
+  { href: "/hajj-2027/", label: "Hajj 2027" },
   { href: "/umrah/", label: "Umrah" },
-  { href: "/saudi-tours/", label: "Saudi Tours" },
-  { href: "/services/", label: "Services" },
-  { href: "/about/", label: "About" },
+  { href: "/services/", label: "Visit Sri Lanka" },
   { href: "/contact/", label: "Contact" },
 ] as const;
