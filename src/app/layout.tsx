@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Amiri, Instrument_Serif, Manrope } from "next/font/google";
+import { Amiri, Bodoni_Moda, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
@@ -8,11 +8,13 @@ import { JsonLd, agencySchema } from "@/components/json-ld";
 import { site } from "@/config/site";
 import "./globals.css";
 
-const display = Instrument_Serif({
+// Variable Bodoni with optical sizing: hairlines stay crisp from hero
+// headlines down to prices and dates.
+const display = Bodoni_Moda({
   subsets: ["latin"],
-  weight: "400",
   style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  axes: ["opsz"],
+  variable: "--font-bodoni",
   display: "swap",
 });
 

@@ -34,7 +34,7 @@ export async function Hero() {
 
       <div className="shell relative w-full pt-40 pb-12 md:pb-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-9">
             <p className="eyebrow" data-hero-item>
               Hajj &amp; Umrah from Sri Lanka · Since {site.established}
             </p>
@@ -61,16 +61,16 @@ export async function Hero() {
           </div>
 
           {next && next.departure && next.return && (
-            <div className="lg:col-span-4 lg:justify-self-end" data-hero-item>
+            <div className="lg:col-span-3 lg:justify-self-end" data-hero-item>
               <Link
                 href={packageHref(next)}
-                className="group block w-full max-w-sm border-t border-white/25 pt-5 transition-colors hover:border-gold-400 lg:w-80"
+                className="group block w-full max-w-sm border-t border-white/25 pt-5 transition-colors hover:border-gold-400 lg:w-72"
               >
                 <span className="flex items-center justify-between text-[0.7rem] font-bold tracking-[0.22em] text-gold-400 uppercase">
                   Next group departure
                   <ArrowUpRight size={16} aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
-                <span className="display mt-3 block text-[1.9rem] leading-tight">{next.title}</span>
+                <span className="display mt-3 block text-[1.9rem] leading-tight text-balance">{next.title}</span>
                 <span className="mt-2 block text-sm text-white/70">
                   {typeLabel[next.type]} · {formatRange(next.departure, next.return)}
                   {daysUntil(next.departure, today) <= 60 && <> · departs in {daysUntil(next.departure, today)} days</>}
