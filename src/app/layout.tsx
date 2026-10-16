@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Amiri, Bodoni_Moda, Manrope } from "next/font/google";
+import { Amiri } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
@@ -7,22 +7,6 @@ import { ScrollEffects } from "@/components/motion/scroll-effects";
 import { JsonLd, agencySchema } from "@/components/json-ld";
 import { site } from "@/config/site";
 import "./globals.css";
-
-// Variable Bodoni with optical sizing: hairlines stay crisp from hero
-// headlines down to prices and dates.
-const display = Bodoni_Moda({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-bodoni",
-  display: "swap",
-});
-
-const sans = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-});
 
 // Only used for the verified Talbiyah on the Hajj page; not preloaded.
 const arabic = Amiri({
@@ -62,8 +46,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" className={`${display.variable} ${sans.variable} ${arabic.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" className={arabic.variable} suppressHydrationWarning>
       <head>
+        {/* Satoshi (Indian Type Foundry), served by Fontshare as its licence
+            requires for a public repository — the files are not self-hosted. */}
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" />
         {/* Lets CSS hide hero copy before GSAP fades it in, without hiding it when JS is off. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>

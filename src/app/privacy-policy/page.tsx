@@ -73,6 +73,10 @@ export default function PrivacyPage() {
               <li>
                 <strong>Maps</strong> on our contact page are provided by Google Maps.
               </li>
+              <li>
+                <strong>Fonts</strong> are delivered by Fontshare (Indian Type Foundry), which receives your IP address when
+                the font files load.
+              </li>
             </ul>
             <p>These services may collect data about you in the same way as if you visited their websites directly.</p>
           </section>

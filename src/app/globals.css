@@ -35,8 +35,8 @@
   --color-logo-blue: #1d499f;
   --color-whatsapp: #1fa855;
 
-  --font-display: var(--font-bodoni), "Bodoni 72", Didot, Georgia, serif;
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-arabic: var(--font-amiri), "Geeza Pro", serif;
 
   --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
@@ -122,31 +122,33 @@
     color: var(--color-gold-400);
   }
 
+  /* One family throughout (as in the reference design): light for the
+     hero statement, medium with tight tracking for section headings. */
   .display {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-weight: 500;
+    letter-spacing: -0.035em;
     line-height: 1.04;
   }
-  /* A fixed, mid optical size keeps Bodoni's hairlines sturdy on dark
-     backgrounds at every size (auto picks the most delicate cut for headlines). */
-  .display,
-  .font-display {
-    font-variation-settings: "opsz" 24;
+  .display em {
+    font-weight: 400;
   }
   .display-xl {
-    font-size: clamp(2.6rem, 1.4rem + 4.6vw, 5.75rem);
+    font-size: clamp(2.8rem, 1.4rem + 5.6vw, 7rem);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
   }
   .display-lg {
-    font-size: clamp(2.2rem, 1.4rem + 3.3vw, 4.5rem);
+    font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.75rem);
   }
   .display-md {
-    font-size: clamp(1.85rem, 1.35rem + 2.1vw, 3.2rem);
+    font-size: clamp(1.95rem, 1.4rem + 2.2vw, 3.35rem);
     line-height: 1.08;
   }
   .display-sm {
-    font-size: clamp(1.45rem, 1.2rem + 1vw, 2rem);
-    line-height: 1.18;
+    font-size: clamp(1.5rem, 1.25rem + 1vw, 2.1rem);
+    line-height: 1.2;
   }
 
   .lede {
