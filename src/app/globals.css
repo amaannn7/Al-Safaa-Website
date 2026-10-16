@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/* Styles that apply inside any dark (teal) section. */
+@custom-variant on-dark (&:where(.on-dark, .on-dark *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens — "Calm authority"                                    */
+/* Teal ink + warm sand, one gold accent. Contrast-checked pairs:      */
+/*   ink-900 on sand-100 13.6:1 · gold-700 on sand 5.0:1               */
+/*   gold-500 on ink-900 5.9:1  · ink-950 on gold-500 6.5:1            */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ink-950: #061f1d;
+  --color-ink-900: #082826;
+  --color-ink-800: #0c3d38;
+  --color-ink-700: #134a44;
+  --color-ink-600: #1d5e56;
+  --color-mist: #b9c7c2;
+  --color-mist-dim: #9fb2ac;
+
+  --color-gold-300: #ecd09c;
+  --color-gold-400: #e3b768;
+  --color-gold-500: #c8963e;
+  --color-gold-700: #8a6420;
+  --color-gold-800: #74531a;
+
+  --color-sand-50: #fdfbf7;
+  --color-sand-100: #faf6ec;
+  --color-sand-200: #f1eadb;
+  --color-sand-300: #e4dacb;
+  --color-sand-400: #cfc3ae;
+
+  --color-body: #1c2b28;
+  --color-muted: #5e6661;
+  --color-logo-blue: #1d499f;
+  --color-whatsapp: #1fa855;
+
+  --font-display: var(--font-instrument-serif), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-amiri), "Geeza Pro", serif;
+
+  --ease-premium: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --breakpoint-xs: 26rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-sand-100);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-gold-400);
+    color: var(--color-ink-950);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible,
+  .bg-ink-900 :focus-visible,
+  .bg-ink-950 :focus-visible {
+    outline-color: var(--color-gold-400);
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  [lang="ar"] {
+    font-family: var(--font-arabic);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .shell {
+      padding-inline: 3rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold-700);
+  }
+  .on-dark .eyebrow,
+  .eyebrow.on-dark {
+    color: var(--color-gold-400);
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 0.98;
+  }
+  .display-xl {
+    font-size: clamp(3rem, 1.6rem + 6.2vw, 7.75rem);
+  }
+  .display-lg {
+    font-size: clamp(2.5rem, 1.6rem + 3.9vw, 5.25rem);
+  }
+  .display-md {
+    font-size: clamp(2.1rem, 1.5rem + 2.6vw, 3.75rem);
+    line-height: 1.02;
+  }
+  .display-sm {
+    font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.35rem);
+    line-height: 1.08;
+  }
+
+  .lede {
+    font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.25rem);
+    line-height: 1.65;
+  }
+
+  /* The gold horizon line — the logo's underline, extended. */
+  .horizon {
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-gold-500), color-mix(in oklab, var(--color-gold-500) 35%, transparent));
+    transform-origin: left center;
+  }
+
+  /* Arch — the colonnades of the Haram, used as an image frame. */
+  .arch {
+    border-radius: 999px 999px 0 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hairline {
+    border-color: color-mix(in oklab, var(--color-ink-900) 14%, transparent);
+  }
+  /* divide-y children inherit the hairline colour (Tailwind v4 defaults to currentColor). */
+  .hairline > * {
+    border-color: inherit;
+  }
+  .on-dark .hairline,
+  .hairline.on-dark {
+    border-color: color-mix(in oklab, white 14%, transparent);
+  }
+
+  /* Underline link with a drawn gold rule. */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 420ms var(--ease-premium);
+    padding-bottom: 2px;
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* Subtle film grain on large dark fields. */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .prose-calm p + p {
+    margin-top: 1.1em;
+  }
+
+  /* Native <details> used for itineraries and highlights. */
+  details > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] .chev {
+    transform: rotate(45deg);
+  }
+  .details-body {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+    details::details-content {
+      height: 0;
+      overflow: clip;
+      transition:
+        height 420ms var(--ease-premium),
+        content-visibility 420ms allow-discrete;
+    }
+    details[open]::details-content {
+      height: auto;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion: initial states only apply when JS is running and the        */
+/* visitor hasn't asked for reduced motion. A CSS fallback reveals     */
+/* everything after 2.5s in case scripts fail.                          */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-hero-item] {
+    visibility: hidden;
+    animation: reveal-fallback 0s 2.5s forwards;
+  }
+}
+@keyframes reveal-fallback {
+  to {
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
