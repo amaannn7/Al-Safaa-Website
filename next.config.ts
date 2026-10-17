@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
       { source: "/hello-world/", destination: "/", statusCode: 301 },
       { source: "/sample-page/", destination: "/", statusCode: 301 },
       { source: "/category/:path*", destination: "/", statusCode: 301 },
+      // WordPress author archives (in the old users sitemap; the URL exposes a username).
+      { source: "/author/:path*", destination: "/", statusCode: 301 },
       { source: "/feed/", destination: "/", statusCode: 301 },
       { source: "/comments/feed/", destination: "/", statusCode: 301 },
       { source: "/wp-sitemap.xml", destination: "/sitemap.xml", statusCode: 301 },

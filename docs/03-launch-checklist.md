@@ -49,7 +49,7 @@ The live WordPress site stays untouched until the new site has been reviewed and
 | `/contact/` | `/contact/` (same) |
 | `/services/` (Visit Sri Lanka) | `/services/` (same; Sri Lanka content kept at `#visit-sri-lanka`) |
 | `/maintenance-page/privacy-policy/` | 301 → `/privacy-policy/` |
-| `/hello-world/`, `/sample-page/`, `/category/*`, `/feed/` | 301 → `/` |
+| `/hello-world/`, `/sample-page/`, `/category/*`, `/author/*`, `/feed/` | 301 → `/` |
 | `/wp-sitemap.xml` | 301 → `/sitemap.xml` |
 
 New pages: `/umrah/`, `/umrah/[package]/` and `/hajj/[package]/` (package detail pages). `/hajj/` redirects (temporarily) to `/hajj-2027/`.
