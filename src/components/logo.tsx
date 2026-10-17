@@ -23,7 +23,7 @@ export function Logo({
       alt="Al-Safaa Travels & Tours"
       priority={priority}
       sizes="200px"
-      className={cn("h-auto w-[148px] sm:w-[168px]", className)}
+      className={cn("h-auto w-[124px] min-[380px]:w-[148px] sm:w-[168px]", className)}
     />
   );
 }
