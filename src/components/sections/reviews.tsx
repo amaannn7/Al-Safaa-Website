@@ -11,6 +11,7 @@ export async function Reviews() {
   const { summary, reviews } = await getReviews();
   // No genuine reviews yet: show nothing rather than an empty section.
   if (reviews.length === 0) return null;
+  const shown = reviews.slice(0, 6);
 
   return (
     <section aria-labelledby="voices" className="on-dark grain bg-ink-800 py-24 text-white lg:py-32">
@@ -34,9 +35,18 @@ export async function Reviews() {
             </a>
           )}
         </div>
-        <ul className="mt-14 grid gap-px overflow-hidden rounded-[1.5rem] bg-white/10 md:grid-cols-2 lg:grid-cols-3" data-reveal-group>
-          {reviews.slice(0, 6).map((r, i) => (
-            <ReviewCard key={`${r.name}-${i}`} review={r} large={i === 0} />
+        {/* Separate cards (no shared background), so any number of reviews looks complete. */}
+        <ul
+          className={cn(
+            "mt-14 grid gap-5",
+            shown.length === 1 && "max-w-3xl",
+            shown.length === 2 && "md:grid-cols-2",
+            shown.length >= 3 && "md:grid-cols-2 lg:grid-cols-3",
+          )}
+          data-reveal-group
+        >
+          {shown.map((r, i) => (
+            <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} />
           ))}
         </ul>
         <p className="mt-6 text-[0.8rem] text-mist-dim">
@@ -59,7 +69,7 @@ function Stars({ rating }: { rating: number }) {
 
 function ReviewCard({ review: r, large }: { review: DisplayReview; large?: boolean }) {
   return (
-    <li className={cn("flex flex-col bg-ink-800 p-8", large && "lg:row-span-2")}>
+    <li className="flex flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-7 sm:p-8">
       {r.rating && <Stars rating={r.rating} />}
       <blockquote className={cn("mt-5 leading-relaxed", large ? "display text-[1.75rem] leading-snug" : "text-[1rem] text-white/90")}>
         <p className="line-clamp-[12]">“{r.quote}”</p>

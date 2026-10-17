@@ -11,7 +11,7 @@ The live WordPress site stays untouched until the new site has been reviewed and
 - [ ] **Hajj "Standard" price** (C5): what room occupancy does it cover?
 - [ ] **"3,000+ pilgrims"** and **"since 1997"**: still accurate?
 - [ ] **Availability**: the October Umrah currently shows no seat label. Should it say "Limited seats" or "Fully booked"?
-- [ ] **Image rights**: confirm the agency owns, or has licences for, the Sri Lanka photos in `public/images/existing/`.
+- [ ] **Image rights**: confirm the agency owns, or has licences for, the Sri Lanka photos in `public/images/existing/` and the Umluj photo (`public/images/photos/umluj.jpg`, supplied by the client, source unknown).
 - [ ] **Privacy policy**: now the relevant sections of the old policy, verbatim. Review it.
 - [ ] **Reviews**: supply genuine testimonials, or a Google Places API key.
 - [ ] **Opening hours**, if they should be shown.

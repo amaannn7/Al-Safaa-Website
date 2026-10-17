@@ -36,6 +36,11 @@ export const destinations: Destination[] = [
     epithet: "The “Saudi Maldives”",
     description:
       "Visitors can explore the pristine beaches of Umluj, often referred to as the “Saudi Maldives.”",
+    // Supplied by the client. Source and licence to be confirmed (see launch checklist).
+    image: {
+      src: "/images/photos/umluj.jpg",
+      alt: "Aerial view of a ring of overwater villas around a turquoise lagoon on Saudi Arabia's Red Sea coast",
+    },
   },
   {
     slug: "riyadh",
