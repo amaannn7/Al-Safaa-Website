@@ -79,6 +79,12 @@ export interface TourPackage {
   notices: string[];
 
   image: Image;
+  /** The agency's own poster for this departure (shown on the home page). */
+  flyer?: Image & { width: number; height: number };
+  /** Title of the home page card, as on the old site. Defaults to `season`. */
+  cardTitle?: string;
+  /** Where "Learn More" goes when several packages share a season page. */
+  seasonHref?: string;
   /** Where the information was taken from, for future audits. */
   source: string;
 }

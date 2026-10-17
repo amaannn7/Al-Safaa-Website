@@ -6,6 +6,7 @@ The live WordPress site stays untouched until the new site has been reviewed and
 
 - [x] **Address** (C1): confirmed as "26, Vajira Road, Colombo 04". Update the Google Business Profile, which still says R. A. De Mel Mawatha.
 - [ ] **Primary WhatsApp** (C2): 071 710 7887 (2026 marketing) or 072 710 7887 (old floating button).
+- [ ] **Posters on the home page**: the two posters are the agency's originals, shown unchanged at the client's request. They still print the old address ("26, R A De Mel Mawatha") and the wording "Bookings now open" / "Call / Whatsapp for bookings". Replace them with updated artwork when available (same file names in `public/images/existing/`, or change `flyer` in `src/data/packages.ts`).
 - [ ] **Brand palette** (C3): teal and gold interface, with the logo kept blue and orange, or reversed white on dark backgrounds as on the 2026 flyers.
 - [ ] **Hajj itinerary labels** (C4): the old page said "23 Day" and "15 Day" groups; the new site says 22-day and 14-day.
 - [ ] **Hajj "Standard" price** (C5): what room occupancy does it cover?

@@ -12,6 +12,7 @@ import {
   phaseOf,
   relatedPackages,
   startingPrice,
+  upcomingBySeason,
   upcomingDepartures,
 } from "./packages";
 
@@ -100,6 +101,23 @@ describe("upcomingDepartures", () => {
     expect(upcomingDepartures([sold], "2026-10-17")).toHaveLength(1);
     expect(availabilityLabel(sold, "2026-10-17")?.label).toBe("Fully booked");
     expect(canEnquire(sold, "2026-10-17")).toBe(false);
+  });
+});
+
+describe("upcomingBySeason", () => {
+  const list = [
+    pkg({ slug: "h22", season: "Hajj 2027", type: "hajj", departure: "2027-05-02", return: "2027-05-23" }),
+    pkg({ slug: "h14", season: "Hajj 2027", type: "hajj", departure: "2027-05-10", return: "2027-05-23" }),
+    pkg({ slug: "oct", season: "Umrah Oct", departure: "2026-10-22" }),
+    pkg({ slug: "old", season: "Umrah 2024", departure: "2024-10-24", return: "2024-11-02" }),
+  ];
+  it("groups packages of a season together, nearest season first", () => {
+    expect(upcomingBySeason(list, "2026-10-17").map((g) => g.map((p) => p.slug))).toEqual([["oct"], ["h22", "h14"]]);
+  });
+  it("drops a season's poster once all its packages have departed", () => {
+    expect(upcomingBySeason(list, "2026-10-22").map((g) => g.map((p) => p.slug))).toEqual([["h22", "h14"]]);
+    expect(upcomingBySeason(list, "2027-05-02").map((g) => g.map((p) => p.slug))).toEqual([["h14"]]);
+    expect(upcomingBySeason(list, "2027-06-01")).toEqual([]);
   });
 });
 

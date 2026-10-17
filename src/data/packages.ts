@@ -83,6 +83,13 @@ const hajj2027Timeline: ItineraryItem[] = [
   { date: "2027-05-23", hijri: "Dhu'l-Hijjah 17, 1448 AH", title: "Departure to Sri Lanka", detail: "Journey concludes with the return flight to Sri Lanka." },
 ];
 
+const hajjFlyer = {
+  src: "/images/existing/hajj-2027-flyer.jpg",
+  alt: "Al-Safaa Hajj 2027 poster: Since 1997. Built on Trust. Dedicated to Pilgrims. Bookings now open, 22 days package and 14 days package. Limited seats available. Call now.",
+  width: 1080,
+  height: 1350,
+};
+
 /* ------------------------------------------------------------------------ */
 
 export const packages: TourPackage[] = [
@@ -94,6 +101,9 @@ export const packages: TourPackage[] = [
     title: "Hajj 2027 · 22 Days",
     season: "Hajj 2027",
     tagline: "A Journey of Faith & Comfort",
+    cardTitle: "Hajj 2027: A Journey of Faith & Comfort",
+    seasonHref: "/hajj-2027/",
+    flyer: hajjFlyer,
     summary: hajj2027Summary,
     destination: "Makkah · Madinah",
     departure: "2027-05-02",
@@ -131,6 +141,9 @@ export const packages: TourPackage[] = [
     title: "Hajj 2027 · 14 Days",
     season: "Hajj 2027",
     tagline: "A Journey of Faith & Comfort",
+    cardTitle: "Hajj 2027: A Journey of Faith & Comfort",
+    seasonHref: "/hajj-2027/",
+    flyer: hajjFlyer,
     summary: hajj2027Summary,
     destination: "Makkah · Madinah",
     departure: "2027-05-10",
@@ -178,6 +191,13 @@ export const packages: TourPackage[] = [
     title: "October 2026 Umrah · 10 Days",
     season: "Umrah · October 2026",
     tagline: "October Affordable Package",
+    cardTitle: "An Affordable Umrah Package in October",
+    flyer: {
+      src: "/images/existing/umrah-october-2026-flyer.jpg",
+      alt: "Al-Safaa October Umrah 2026 poster: departure 22 October 2026, return 31 October 2026, Colombo to Medina and Taif to Colombo. Walking distance, two Jummahs, Madinah first.",
+      width: 1080,
+      height: 1080,
+    },
     summary:
       "This package offers an excellent option for those looking for an affordable Umrah experience, providing comfortable accommodation and essential services to ensure a fulfilling and spiritual journey in Saudi Arabia.",
     destination: "Madinah · Makkah",

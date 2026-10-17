@@ -33,6 +33,8 @@ Open `src/data/packages.ts` and add an entry to the `packages` array. The quicke
   inclusions: ["…"],
   exclusions: ["…"],
   notices: ["Passport must be valid for 6 months from the return date."],
+  flyer: { src: "/images/existing/my-poster.jpg", alt: "Describe the poster", width: 1080, height: 1350 },   // optional poster shown in "Upcoming group tours"
+  cardTitle: "Title shown above the poster",                                                                       // optional
   image: { src: "/images/photos/madinah-green-dome.jpg", alt: "Describe the photo for screen readers", credit: "madinah-green-dome" },
   source: "Where this information came from (flyer, WhatsApp from Omar, …)",
 }
@@ -42,7 +44,7 @@ Then run `npm test`. It checks that slugs are unique, dates are in order and dur
 
 The new package appears automatically on:
 
-- the home page departures board and hero "next departure"
+- the home page "Upcoming group tours" (posters first; packages of the same `season` share one poster) and hero "next departure"
 - the Hajj 2027 page (Hajj) or the Umrah page (Umrah)
 - its own detail page, the sitemap and the structured data
 

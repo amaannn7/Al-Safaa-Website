@@ -68,6 +68,13 @@ export function listablePackages(all: readonly TourPackage[], today: IsoDate, ty
   return [...upcoming, ...tbc];
 }
 
+/** Upcoming packages grouped by season (e.g. both Hajj 2027 packages share one poster), nearest first. */
+export function upcomingBySeason(all: readonly TourPackage[], today: IsoDate): TourPackage[][] {
+  const groups = new Map<string, TourPackage[]>();
+  for (const p of upcomingDepartures(all, today)) groups.set(p.season, [...(groups.get(p.season) ?? []), p]);
+  return [...groups.values()];
+}
+
 export function findPackage(all: readonly TourPackage[], slug: string): TourPackage | undefined {
   return all.find((p) => p.slug === slug && isPublic(p));
 }
