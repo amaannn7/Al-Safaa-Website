@@ -71,7 +71,7 @@ Nothing to do. A package drops off the upcoming lists on its departure day. Its 
 
 ## Testimonials
 
-With three or more reviews the cards scroll sideways as a slow loop (a marquee). It pauses on hover or keyboard focus and has a Pause button; with "reduce motion" switched on in the visitor's system it becomes a plain swipeable row. With one or two reviews they sit in a normal grid.
+With three or more reviews the cards scroll sideways as a slow loop (a marquee). It pauses on hover, keyboard focus, or while a review is expanded (each card shows the first four lines with a "Read more" toggle); with "reduce motion" switched on in the visitor's system it becomes a plain swipeable row. With one or two reviews they sit in a normal grid.
 
 The "5.0 · 70 reviews on Google" figure above the cards is typed in `src/config/site.ts` (`google.rating`, `google.reviewCount`). Update it when the numbers on your Google profile change.
 

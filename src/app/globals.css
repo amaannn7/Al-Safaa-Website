@@ -292,9 +292,8 @@
   padding-right: 1.25rem;
 }
 .marquee:hover .marquee-track,
-/* keyboard focus only: a mouse click on Play/Pause must not freeze the loop */
 .marquee:has(:focus-visible) .marquee-track,
-.marquee[data-paused="true"] .marquee-track {
+.marquee:has([aria-expanded="true"]) .marquee-track {
   animation-play-state: paused;
 }
 @keyframes marquee-slide {
@@ -313,8 +312,7 @@
     -webkit-mask-image: none;
     mask-image: none;
   }
-  .marquee-group[data-dup],
-  .marquee-pause {
+  .marquee-group[data-dup] {
     display: none;
   }
   .marquee-group > * {

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { getReviews, type DisplayReview } from "@/lib/reviews";
+import { ReviewText } from "@/components/sections/review-text";
 import { ReviewMarquee } from "@/components/motion/review-marquee";
 import { cn } from "@/lib/cn";
 
@@ -16,18 +17,18 @@ export async function Reviews() {
   const footnote = `Reviews are shown as written by the reviewer.${summary?.live ? " Live reviews provided by Google." : ""}`;
 
   return (
-    <section aria-labelledby="voices" className="on-dark grain bg-ink-800 py-24 text-white lg:py-32">
+    <section aria-labelledby="voices" className="on-dark grain bg-ink-800 py-14 text-white lg:py-20">
       <div className="shell">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div data-reveal>
             <p className="eyebrow">Google reviews</p>
-            <h2 id="voices" className="display display-md mt-4 max-w-2xl">
+            <h2 id="voices" className="display display-sm mt-3 max-w-2xl">
               What our pilgrims say
             </h2>
           </div>
           {summary && (
             <a href={summary.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4" data-reveal>
-              <span className="display text-6xl tabular-nums">{summary.rating.toFixed(1)}</span>
+              <span className="display text-5xl tabular-nums">{summary.rating.toFixed(1)}</span>
               <span className="text-sm text-mist">
                 <Stars rating={summary.rating} />
                 <span className="mt-1 block">
@@ -46,7 +47,7 @@ export async function Reviews() {
         </ReviewMarquee>
       ) : (
         <div className="shell">
-          <ul className={cn("mt-14", shown.length === 1 ? "max-w-3xl" : "grid gap-5 md:grid-cols-2")}>
+          <ul className={cn("mt-8", shown.length === 1 ? "max-w-3xl" : "grid gap-5 md:grid-cols-2")}>
             {shown.map((r, i) => (
               <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} />
             ))}
@@ -70,12 +71,10 @@ function Stars({ rating }: { rating: number }) {
 
 function ReviewCard({ review: r, large, marquee }: { review: DisplayReview; large?: boolean; marquee?: boolean }) {
   return (
-    <li className={cn("flex flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-7 sm:p-8", marquee && "w-[min(22rem,84vw)] shrink-0 sm:w-[30rem]")}>
+    <li className={cn("flex flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-5 sm:p-6", marquee && "w-[min(19rem,84vw)] shrink-0 sm:w-[22rem]")}>
       {r.rating && <Stars rating={r.rating} />}
-      <blockquote className={cn("mt-5 leading-relaxed", large ? "display text-[1.75rem] leading-snug" : "text-[1rem] text-white/90")}>
-        <p className="whitespace-pre-line">“{r.quote}”</p>
-      </blockquote>
-      <footer className="mt-auto flex items-center gap-3 pt-8 text-sm">
+      <ReviewText text={r.quote} large={large} />
+      <footer className="mt-auto flex items-center gap-3 pt-5 text-sm">
         {r.photo && <Image src={r.photo} alt="" width={36} height={36} className="rounded-full" />}
         <span>
           {r.profileUrl ? (
