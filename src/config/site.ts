@@ -38,6 +38,14 @@ export const site = {
   },
 
   google: {
+    /**
+     * Rating shown above the reviews, copied by hand from the Google profile's
+     * own card (5.0 from 70 reviews, seen 17 Oct 2026). Update both numbers
+     * when they change. Ignored if GOOGLE_PLACES_API_KEY is set, because then
+     * the live figures are used.
+     */
+    rating: 5.0,
+    reviewCount: 70,
     profileUrl:
       "https://www.google.com/maps/place/Al-Safaa+Travels+%26+Tours/@6.8904911,79.8585629,17z/data=!4m6!3m5!1s0x3ae25b063205efa1:0x889270e0ad49e3bc!8m2!3d6.8904911!4d79.8585629",
     reviewsUrl:

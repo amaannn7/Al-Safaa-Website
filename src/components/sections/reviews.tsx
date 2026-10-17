@@ -51,7 +51,7 @@ export async function Reviews() {
           ))}
         </ul>
         <p className="mt-6 text-[0.8rem] text-mist-dim">
-          Reviews are shown as written by the reviewer.{summary ? " Live reviews provided by Google." : ""}
+          Reviews are shown as written by the reviewer.{summary?.live ? " Live reviews provided by Google." : ""}
         </p>
       </div>
     </section>

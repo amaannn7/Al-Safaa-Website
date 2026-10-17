@@ -71,6 +71,8 @@ Nothing to do. A package drops off the upcoming lists on its departure day. Its 
 
 ## Testimonials
 
+The "5.0 · 70 reviews on Google" figure above the cards is typed in `src/config/site.ts` (`google.rating`, `google.reviewCount`). Update it when the numbers on your Google profile change.
+
 Add **genuine** reviews to `src/data/testimonials.ts`, quoted word for word with the reviewer's name, date and source. The reviews section appears on the home page as soon as the list has entries.
 
 Alternatively, set `GOOGLE_PLACES_API_KEY` in Vercel to show up to five live Google reviews (Google requires the attribution that the component already shows). Create the key in Google Cloud and restrict it to the **Places API (New)**.

@@ -18,6 +18,8 @@ export interface ReviewSummary {
   rating: number;
   count: number;
   url: string;
+  /** true only when the figures come live from the Google Places API. */
+  live?: boolean;
 }
 
 /**
@@ -46,7 +48,7 @@ async function fetchGoogle(): Promise<{ summary: ReviewSummary; reviews: Display
     const place = data.places?.[0];
     if (!place?.rating) return null;
     return {
-      summary: { rating: place.rating, count: place.userRatingCount ?? 0, url: place.googleMapsUri ?? site.google.reviewsUrl },
+      summary: { rating: place.rating, count: place.userRatingCount ?? 0, url: place.googleMapsUri ?? site.google.reviewsUrl, live: true },
       reviews: (place.reviews ?? [])
         .filter((r) => r.text?.text)
         .map((r) => ({
@@ -90,5 +92,6 @@ export async function getReviews() {
     source: t.source,
     sourceUrl: t.sourceUrl,
   }));
-  return { summary: google?.summary ?? null, reviews: [...curated, ...(google?.reviews ?? [])] };
+  const manual: ReviewSummary = { rating: site.google.rating, count: site.google.reviewCount, url: site.google.reviewsUrl };
+  return { summary: google?.summary ?? manual, reviews: [...curated, ...(google?.reviews ?? [])] };
 }
