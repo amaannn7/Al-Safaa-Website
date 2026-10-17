@@ -274,6 +274,54 @@
     animation: reveal-fallback 0s 2.5s forwards;
   }
 }
+/* Review marquee: slide one copy of the cards (-50% of the track) per loop. */
+.marquee-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-slide 90s linear infinite;
+}
+.marquee-group {
+  display: flex;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+}
+.marquee:hover .marquee-track,
+/* keyboard focus only: a mouse click on Play/Pause must not freeze the loop */
+.marquee:has(:focus-visible) .marquee-track,
+.marquee[data-paused="true"] .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* No motion: a plain, swipeable row (one copy only). */
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-group[data-dup],
+  .marquee-pause {
+    display: none;
+  }
+  .marquee-group > * {
+    scroll-snap-align: start;
+  }
+}
+
 @keyframes reveal-fallback {
   to {
     visibility: visible;

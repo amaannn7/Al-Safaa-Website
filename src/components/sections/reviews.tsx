@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { getReviews, type DisplayReview } from "@/lib/reviews";
+import { ReviewMarquee } from "@/components/motion/review-marquee";
 import { cn } from "@/lib/cn";
 
 /**
@@ -12,6 +13,7 @@ export async function Reviews() {
   // No genuine reviews yet: show nothing rather than an empty section.
   if (reviews.length === 0) return null;
   const shown = reviews.slice(0, 6);
+  const footnote = `Reviews are shown as written by the reviewer.${summary?.live ? " Live reviews provided by Google." : ""}`;
 
   return (
     <section aria-labelledby="voices" className="on-dark grain bg-ink-800 py-24 text-white lg:py-32">
@@ -35,25 +37,23 @@ export async function Reviews() {
             </a>
           )}
         </div>
-        {/* Separate cards (no shared background), so any number of reviews looks complete. */}
-        <ul
-          className={cn(
-            "mt-14",
-            shown.length === 1 && "max-w-3xl",
-            shown.length === 2 && "grid gap-5 md:grid-cols-2",
-            // Reviews differ a lot in length: flow them in columns so every card keeps its own height.
-            shown.length >= 3 && "gap-5 md:columns-2 lg:columns-3",
-          )}
-          data-reveal-group
-        >
-          {shown.map((r, i) => (
-            <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} masonry={shown.length >= 3} />
-          ))}
-        </ul>
-        <p className="mt-6 text-[0.8rem] text-mist-dim">
-          Reviews are shown as written by the reviewer.{summary?.live ? " Live reviews provided by Google." : ""}
-        </p>
       </div>
+      {shown.length >= 3 ? (
+        <ReviewMarquee footnote={footnote}>
+          {shown.map((r, i) => (
+            <ReviewCard key={`${r.name}-${i}`} review={r} marquee />
+          ))}
+        </ReviewMarquee>
+      ) : (
+        <div className="shell">
+          <ul className={cn("mt-14", shown.length === 1 ? "max-w-3xl" : "grid gap-5 md:grid-cols-2")}>
+            {shown.map((r, i) => (
+              <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} />
+            ))}
+          </ul>
+          <p className="mt-6 text-[0.8rem] text-mist-dim">{footnote}</p>
+        </div>
+      )}
     </section>
   );
 }
@@ -68,9 +68,9 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function ReviewCard({ review: r, large, masonry }: { review: DisplayReview; large?: boolean; masonry?: boolean }) {
+function ReviewCard({ review: r, large, marquee }: { review: DisplayReview; large?: boolean; marquee?: boolean }) {
   return (
-    <li className={cn("flex break-inside-avoid flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-7 sm:p-8", masonry && "mb-5")}>
+    <li className={cn("flex flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-7 sm:p-8", marquee && "w-[min(22rem,84vw)] shrink-0 sm:w-[30rem]")}>
       {r.rating && <Stars rating={r.rating} />}
       <blockquote className={cn("mt-5 leading-relaxed", large ? "display text-[1.75rem] leading-snug" : "text-[1rem] text-white/90")}>
         <p className="whitespace-pre-line">“{r.quote}”</p>

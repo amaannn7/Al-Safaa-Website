@@ -71,6 +71,8 @@ Nothing to do. A package drops off the upcoming lists on its departure day. Its 
 
 ## Testimonials
 
+With three or more reviews the cards scroll sideways as a slow loop (a marquee). It pauses on hover or keyboard focus and has a Pause button; with "reduce motion" switched on in the visitor's system it becomes a plain swipeable row. With one or two reviews they sit in a normal grid.
+
 The "5.0 · 70 reviews on Google" figure above the cards is typed in `src/config/site.ts` (`google.rating`, `google.reviewCount`). Update it when the numbers on your Google profile change.
 
 Add **genuine** reviews to `src/data/testimonials.ts`, quoted word for word with the reviewer's name, date and source. The reviews section appears on the home page as soon as the list has entries.
