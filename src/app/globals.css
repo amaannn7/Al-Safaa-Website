@@ -121,13 +121,36 @@
     }
   }
 
-  .eyebrow {
+  /*
+   * The small-text scale. Every label, caption and note on the site uses one
+   * of these four, so sizes and tracking can't drift apart:
+   *   .eyebrow  section label            12px  bold  caps  wide
+   *   .label    data label / small cap   12px  bold  caps  wide (same look, muted colour set by the page)
+   *   .action   link-style button text   13px  bold  caps  medium
+   *   .meta     small supporting text    13px  regular  sentence case
+   * 12px is the smallest text on the site (it was 11.2px).
+   */
+  .eyebrow,
+  .label {
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+  }
+  .eyebrow {
     color: var(--color-gold-700);
+  }
+  .action {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .meta {
+    font-size: 0.8125rem;
+    line-height: 1.5;
   }
   .on-dark .eyebrow,
   .eyebrow.on-dark {

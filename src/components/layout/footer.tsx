@@ -99,14 +99,14 @@ export async function Footer() {
         </div>
 
         <span className="horizon mt-16 opacity-60" aria-hidden />
-        <div className="mt-8 flex flex-col gap-4 text-[0.8rem] text-mist-dim sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-8 flex flex-col gap-4 meta text-mist-dim sm:flex-row sm:items-center sm:justify-between">
           <p>
             Copyright © {year} {site.name}
           </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li>
               <Link href="/privacy-policy/" className="hover:text-white">
-                Privacy policy
+                Privacy Policy
               </Link>
             </li>
           </ul>

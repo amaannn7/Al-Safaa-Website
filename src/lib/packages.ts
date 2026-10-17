@@ -94,7 +94,7 @@ export type AvailabilityLabel = { label: string; tone: "open" | "limited" | "clo
 export function availabilityLabel(p: TourPackage, today: IsoDate): AvailabilityLabel | null {
   const phase = phaseOf(p, today);
   if (phase === "completed") return { label: "Completed", tone: "neutral" };
-  if (phase === "travelling") return { label: "Group travelling", tone: "neutral" };
+  if (phase === "travelling") return { label: "Group traveling", tone: "neutral" };
   if (p.availability === "sold-out") return { label: "Fully booked", tone: "closed" };
   if (p.availability === "limited") return { label: "Limited seats", tone: "limited" };
   if (p.availability === "open") return { label: "Seats available", tone: "open" };

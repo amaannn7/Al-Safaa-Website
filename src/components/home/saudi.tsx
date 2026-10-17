@@ -60,7 +60,7 @@ function DestinationTile({ d }: { d: (typeof destinations)[number] }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/10 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 p-7 text-white">
-          <p className="text-[0.7rem] font-bold tracking-[0.2em] text-gold-400 uppercase">{d.epithet}</p>
+          <p className="label text-gold-400">{d.epithet}</p>
           <h3 className="display mt-2 text-[2.75rem] leading-none">{d.name}</h3>
         </div>
       </div>

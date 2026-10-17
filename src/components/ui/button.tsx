@@ -117,7 +117,7 @@ export function ArrowLink({
   external?: boolean;
 }) {
   const cls = cn(
-    "group/btn inline-flex items-center gap-2 text-[0.8rem] font-bold uppercase tracking-[0.16em] transition-colors",
+    "group/btn inline-flex items-center gap-2 action transition-colors",
     className,
   );
   if (external)

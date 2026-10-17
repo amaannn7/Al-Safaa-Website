@@ -262,10 +262,10 @@ export function Header() {
                 <Phone size={16} strokeWidth={1.8} aria-hidden /> Call
               </a>
             </div>
-            <p className="mt-3 text-center text-[0.8rem] text-mist">{site.contact.phones[0].display}</p>
+            <p className="mt-3 text-center meta text-mist">{site.contact.phones[0].display}</p>
 
             <div className="mt-4 flex flex-col gap-3 border-t [@media(max-height:700px)]:mt-3 [@media(max-height:700px)]:pt-3 border-white/10 pt-4 min-[380px]:flex-row min-[380px]:items-center min-[380px]:justify-between min-[380px]:gap-4">
-              <p className="text-[0.78rem] leading-snug text-mist-dim">
+              <p className="meta leading-snug text-mist-dim">
                 {site.address.street}, <span className="whitespace-nowrap">{site.address.locality}</span>
               </p>
               <ul className="flex gap-2" aria-label="Social media">

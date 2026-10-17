@@ -6,7 +6,7 @@ import { site } from "@/config/site";
 export function Legacy() {
   const stats = [
     { value: String(site.established), label: "Founded" },
-    { value: site.pilgrimsGuided, label: "Travellers guided" },
+    { value: site.pilgrimsGuided, label: "Travelers guided" },
   ];
 
   return (
@@ -46,7 +46,7 @@ export function Legacy() {
           <dl className="mt-14 grid grid-cols-1 border-t hairline xs:grid-cols-2" data-reveal-group>
             {stats.map((s) => (
               <div key={s.label} className="flex flex-col border-b hairline py-6 xs:border-b-0 xs:pr-6">
-                <dt className="order-2 mt-2 block text-[0.85rem] leading-snug text-muted">{s.label}</dt>
+                <dt className="order-2 mt-2 block meta text-muted">{s.label}</dt>
                 <dd className="display order-1 text-[3.25rem] leading-none text-ink-900 tabular-nums">{s.value}</dd>
               </div>
             ))}

@@ -52,10 +52,11 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
         aside={
           pkg.departure &&
           pkg.return && (
-            <div className="flex items-end gap-6 border-l border-white/20 pl-6 lg:justify-self-end">
-              <DateBlock date={pkg.departure} today={today} />
-              <span aria-hidden className="mb-5 h-px w-6 bg-white/40" />
-              <DateBlock date={pkg.return} />
+            <div className="flex items-start gap-6 border-l border-white/20 pl-6 lg:justify-self-end">
+              <DateBlock date={pkg.departure} countdownFrom={today} reserveCountdown />
+              {/* Dash aligned to the middle of the big day numbers (3.4rem tall) */}
+              <span aria-hidden className="mt-[1.7rem] h-px w-6 shrink-0 bg-white/40" />
+              <DateBlock date={pkg.return} reserveCountdown />
             </div>
           )
         }
@@ -73,7 +74,7 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
       {phase !== "upcoming" && phase !== "dates-tbc" && (
         <div className="bg-gold-500 text-ink-950">
           <p className="shell py-3 text-sm font-semibold">
-            {phase === "completed" ? "This journey has been completed." : "This group is currently travelling."}{" "}
+            {phase === "completed" ? "This journey has been completed." : "This group is currently traveling."}{" "}
             <Link href={parent.path} className="underline underline-offset-4">
               See current {parent.name} departures
             </Link>
@@ -227,7 +228,7 @@ export function PackageDetail({ pkg, today }: { pkg: TourPackage; today: IsoDate
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-[0.7rem] font-bold tracking-[0.2em] text-muted uppercase">{label}</dt>
+      <dt className="label text-muted">{label}</dt>
       <dd className="mt-2 text-[1.05rem] font-semibold">{children}</dd>
     </div>
   );
@@ -243,7 +244,7 @@ function tripSchema(pkg: TourPackage, today: IsoDate) {
     description: pkg.summary,
     url,
     image: `${site.url}${pkg.image.src}`,
-    touristType: pkg.type === "hajj" ? "Hajj pilgrims" : pkg.type === "umrah" ? "Umrah pilgrims" : "Travellers",
+    touristType: pkg.type === "hajj" ? "Hajj pilgrims" : pkg.type === "umrah" ? "Umrah pilgrims" : "Travelers",
     provider: { "@id": agencyId },
     ...(pkg.departure ? { startDate: pkg.departure } : {}),
     ...(pkg.return ? { endDate: pkg.return } : {}),

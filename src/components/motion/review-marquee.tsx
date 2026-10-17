@@ -23,7 +23,7 @@ export function ReviewMarquee({ children, footnote }: { children: ReactNode; foo
           </ul>
         </div>
       </div>
-      {footnote && <div className="shell mt-4 text-[0.8rem] text-mist-dim">{footnote}</div>}
+      {footnote && <div className="shell mt-4 meta text-mist-dim">{footnote}</div>}
     </div>
   );
 }

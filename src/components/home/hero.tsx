@@ -65,7 +65,7 @@ export async function Hero() {
                 href={packageHref(next)}
                 className="group block w-full max-w-sm border-t border-white/25 pt-5 transition-colors hover:border-gold-400 lg:w-72"
               >
-                <span className="flex items-center justify-between text-[0.7rem] font-bold tracking-[0.22em] text-gold-400 uppercase">
+                <span className="flex items-center justify-between label text-gold-400">
                   Upcoming group tour
                   <ArrowUpRight size={16} aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>

@@ -94,7 +94,7 @@ export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
   return (
     <>
       <nav aria-label="Breadcrumb" data-hero-item>
-        <ol className="flex flex-wrap items-center gap-1.5 text-[0.78rem] font-semibold tracking-wide text-white/60">
+        <ol className="flex flex-wrap items-center gap-1.5 meta font-semibold text-white/60">
           {all.map((c, i) => (
             <li key={c.path} className="flex items-center gap-1.5">
               {i > 0 && <ChevronRight size={13} aria-hidden className="text-white/35" />}

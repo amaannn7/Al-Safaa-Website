@@ -52,7 +52,7 @@ export async function Reviews() {
               <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} />
             ))}
           </ul>
-          <p className="mt-6 text-[0.8rem] text-mist-dim">{footnote}</p>
+          <p className="mt-6 meta text-mist-dim">{footnote}</p>
         </div>
       )}
     </section>

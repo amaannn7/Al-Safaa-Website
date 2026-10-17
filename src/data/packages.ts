@@ -23,7 +23,7 @@ const hajj2027Summary =
 const hajj2027Inclusions = [
   "Accommodation in Makkah & Madinah",
   "Luxury transport in Saudi Arabia",
-  "City tour, Makkah & Madina",
+  "City tour, Makkah & Madinah",
   "Full board, buffet meals",
   "B Category Mina tents",
   "Experienced guides",
@@ -79,7 +79,7 @@ const hajj2027Timeline: ItineraryItem[] = [
   { date: "2027-05-16", hijri: "Dhu'l-Hijjah 10, 1448 AH", title: "Stay in Muzdalifah and Return to Mina", detail: "Overnight in Muzdalifah, then return to Mina to continue the Hajj rites." },
   { date: "2027-05-17", hijri: "Dhu'l-Hijjah 11, 1448 AH", title: "Stay in Mina", detail: "Continued stay in Mina for the days of Tashreeq." },
   { date: "2027-05-18", hijri: "Dhu'l-Hijjah 12, 1448 AH", title: "Return to Hotel in Rea Baksh", detail: "Group returns from Mina to the Rea Bakhsh Hotel in Makkah." },
-  { date: "2027-05-20", hijri: "Dhu'l-Hijjah 14, 1448 AH", title: "Leave to Medina", detail: "Group transfers to Madinah for the closing days of the journey, staying at Sham Province Hotel." },
+  { date: "2027-05-20", hijri: "Dhu'l-Hijjah 14, 1448 AH", title: "Leave to Madinah", detail: "Group transfers to Madinah for the closing days of the journey, staying at Sham Province Hotel." },
   { date: "2027-05-23", hijri: "Dhu'l-Hijjah 17, 1448 AH", title: "Departure to Sri Lanka", detail: "Journey concludes with the return flight to Sri Lanka." },
 ];
 
@@ -194,7 +194,7 @@ export const packages: TourPackage[] = [
     cardTitle: "An Affordable Umrah Package in October",
     flyer: {
       src: "/images/existing/umrah-october-2026-flyer.jpg",
-      alt: "Al-Safaa October Umrah 2026 poster: departure 22 October 2026, return 31 October 2026, Colombo to Medina and Taif to Colombo. Walking distance, two Jummahs, Madinah first.",
+      alt: "Al-Safaa October Umrah 2026 poster: departure 22 October 2026, return 31 October 2026, Colombo to Madinah and Taif to Colombo. Walking distance, two Jummahs, Madinah first.",
       width: 1080,
       height: 1080,
     },
@@ -213,16 +213,16 @@ export const packages: TourPackage[] = [
       { label: "Infant", amount: 100_000, kind: "infant" },
     ],
     stays: [
-      { city: "Madinah", hotel: "Amjad Al Salam", duration: "3 nights", note: "150M", mapUrl: "https://maps.app.goo.gl/fd8Van9zbKhixHjT8" },
-      { city: "Makkah", hotel: "Muhajireen Al Hibba", duration: "6 nights", note: "550M", mapUrl: "https://maps.app.goo.gl/h1EqrmCJVfxqHpoJ9" },
+      { city: "Madinah", hotel: "Amjad Al Salam", duration: "3 nights", note: "150m", mapUrl: "https://maps.app.goo.gl/fd8Van9zbKhixHjT8" },
+      { city: "Makkah", hotel: "Muhajireen Al Hibba", duration: "6 nights", note: "550m", mapUrl: "https://maps.app.goo.gl/h1EqrmCJVfxqHpoJ9" },
     ],
     flight: {
       airline: "Air Arabia",
-      routing: "Colombo to Medina | Taif to Colombo",
-      notes: ["Medina First", "Short transit under 1 hour 30 minutes.", "2 Jummahs [Makkah & Medina]"],
+      routing: "Colombo to Madinah | Taif to Colombo",
+      notes: ["Madinah First", "Short transit under 1 hour 30 minutes.", "2 Jummahs [Makkah & Madinah]"],
     },
     highlights: [
-      { title: "Walking Distance", body: "Quality accommodations within walking distance of Masjid Al-Haram & Masjid An-Nabawi." },
+      { title: "Walking Distance", body: "Quality accommodations within walking distance of Masjid Al Haram & Masjid An-Nabawi." },
       { title: "Two Jummahs", body: "Experience two blessed Jummah prayers, one in Madinah and one in Makkah." },
       { title: "Madinah First", body: "Arrive via Madinah Airport and return from Taif Airport, conveniently located near Makkah." },
     ],
@@ -231,7 +231,7 @@ export const packages: TourPackage[] = [
       "Accommodations in Makkah & Madinah",
       "Luxury Bus Transports in Saudi Arabia",
       "Sri Lankan Food",
-      "City Tour Makkah & Medina",
+      "City Tour Makkah & Madinah",
       "Air Ticket & Visa",
       "Experienced Guide",
     ],

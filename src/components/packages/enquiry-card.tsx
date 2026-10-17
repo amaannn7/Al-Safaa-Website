@@ -51,7 +51,7 @@ export function EnquiryCard({ pkg, today }: { pkg: TourPackage; today: IsoDate }
           {phase === "completed"
             ? "This journey has been completed. See our current departures below."
             : phase === "travelling"
-              ? "This group is currently travelling. See our other departures below."
+              ? "This group is currently traveling. See our other departures below."
               : "This departure is fully booked. Ask us about the next one."}
         </p>
       )}

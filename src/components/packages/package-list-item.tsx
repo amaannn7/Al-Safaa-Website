@@ -60,17 +60,17 @@ export function PackageListItem({ pkg, today, flip = false }: { pkg: TourPackage
         </dl>
 
         <div className="mt-6">
-          <p className="flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.2em] text-muted uppercase">
+          <p className="flex items-center gap-2 label text-muted">
             <BedDouble size={15} strokeWidth={1.6} aria-hidden /> Accommodation
           </p>
-          <ul className="mt-3 space-y-1.5">
+          <ul className="mt-3 space-y-3">
             {pkg.stays.map((s) => (
-              <li key={s.hotel} className="flex flex-wrap items-baseline gap-x-2 text-[0.95rem]">
-                <span className="font-semibold">
+              <li key={`${s.hotel}-${s.duration}`}>
+                <span className="block font-semibold">
                   {s.hotel}
                   {s.stars ? ` ${s.stars}★` : ""}
                 </span>
-                <span className="text-muted">
+                <span className="meta block text-muted">
                   {s.city} · {s.duration}
                   {s.note ? ` · ${s.note}` : ""}
                 </span>
@@ -82,7 +82,7 @@ export function PackageListItem({ pkg, today, flip = false }: { pkg: TourPackage
         {pkg.highlights.length > 0 && (
           <ul className="mt-6 flex flex-wrap gap-2">
             {pkg.highlights.map((h) => (
-              <li key={h.title} className="rounded-full border hairline px-3.5 py-1.5 text-[0.8rem] font-semibold">
+              <li key={h.title} className="rounded-full border hairline px-3.5 py-1.5 meta font-semibold">
                 {h.title}
               </li>
             ))}
@@ -106,7 +106,7 @@ export function PackageListItem({ pkg, today, flip = false }: { pkg: TourPackage
 function Fact({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.2em] text-muted uppercase">
+      <dt className="flex items-center gap-2 label text-muted">
         <span aria-hidden className="text-gold-700">
           {icon}
         </span>

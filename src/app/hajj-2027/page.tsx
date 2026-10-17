@@ -52,7 +52,7 @@ export default async function Hajj2027Page() {
             Hajj <span className="text-gold-400">2027</span>
           </>
         }
-        lede={<p className="text-[0.85rem] font-bold tracking-[0.2em] uppercase">5-Star Rated · Built on Trust · Known for Comfort</p>}
+        lede={<p className="label">5-Star Rated · Built on Trust · Known for Comfort</p>}
         image={{ src: "/images/photos/pilgrims-ihram.jpg", alt: "Pilgrims in white ihram in the courtyard of Masjid al-Haram" }}
         crumbs={[{ name: "Hajj 2027", path: "/hajj-2027/" }]}
         aside={
@@ -171,7 +171,7 @@ function PackageColumn({ pkg, today, emphasis }: { pkg: TourPackage; today: IsoD
       </div>
 
       <div className="mt-8 border-t border-current/15 pt-6">
-        <p className="text-[0.7rem] font-bold tracking-[0.2em] uppercase opacity-70">{standard.label} package</p>
+        <p className="label opacity-70">{standard.label} package</p>
         <p className="display mt-2 text-[2.6rem] leading-none tabular-nums sm:text-[3.5rem]">
           {formatAmount(standard.amount)} <span className="font-sans text-base tracking-wide opacity-70">LKR</span>
         </p>
@@ -190,7 +190,7 @@ function PackageColumn({ pkg, today, emphasis }: { pkg: TourPackage; today: IsoD
           ["Return", pkg.return],
         ].map(([k, v]) => (
           <div key={k}>
-            <dt className="flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.2em] uppercase opacity-70">
+            <dt className="flex items-center gap-2 label opacity-70">
               <CalendarDays size={14} aria-hidden /> {k}
             </dt>
             <dd className="display mt-2 text-[1.75rem] leading-none">{v ? formatDate(v as IsoDate) : "TBC"}</dd>
@@ -199,7 +199,7 @@ function PackageColumn({ pkg, today, emphasis }: { pkg: TourPackage; today: IsoD
       </dl>
 
       <div className="mt-8 border-t border-current/15 pt-6">
-        <p className="flex items-center gap-2 text-[0.7rem] font-bold tracking-[0.2em] uppercase opacity-70">
+        <p className="flex items-center gap-2 label opacity-70">
           <BedDouble size={14} aria-hidden /> Stays
         </p>
         <ol className="mt-4 space-y-4">

@@ -38,7 +38,7 @@ export function ReviewText({ text, large = false }: { text: string; large?: bool
           type="button"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="mt-2 self-start text-[0.8rem] font-bold tracking-[0.12em] text-gold-400 uppercase underline-offset-4 hover:underline"
+          className="mt-2 self-start action text-gold-400 underline-offset-4 hover:underline"
         >
           {expanded ? "Show less" : "Read more"}
         </button>

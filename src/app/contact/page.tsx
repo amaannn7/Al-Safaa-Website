@@ -37,7 +37,7 @@ export default function ContactPage() {
             </div>
 
             <div data-reveal>
-              <h2 className="eyebrow">Call Us</h2>
+              <h2 className="eyebrow">Call us</h2>
               <ul className="mt-4 divide-y hairline border-y hairline">
                 {site.contact.phones.map((p) => (
                   <li key={p.e164}>
@@ -55,13 +55,13 @@ export default function ContactPage() {
 
             <div className="grid gap-10 sm:grid-cols-2" data-reveal>
               <div>
-                <h2 className="eyebrow">Email Us</h2>
+                <h2 className="eyebrow">Email us</h2>
                 <a href={`mailto:${site.contact.email}`} className="mt-4 flex items-center gap-2 font-semibold hover:text-gold-700">
                   <Mail size={17} strokeWidth={1.6} aria-hidden /> {site.contact.email}
                 </a>
               </div>
               <div>
-                <h2 className="eyebrow">Follow Us</h2>
+                <h2 className="eyebrow">Follow us</h2>
                 <ul className="mt-4 flex gap-2">
                   {site.social.map((s) => {
                     const Icon = socialIcons[s.name];
@@ -105,7 +105,7 @@ export default function ContactPage() {
               href={site.google.profileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-[0.8rem] font-bold tracking-[0.14em] text-ink-800 uppercase hover:text-gold-700"
+              className="mt-5 inline-flex items-center gap-2 action text-ink-800 hover:text-gold-700"
             >
               Open in Google Maps <ExternalLink size={14} aria-hidden />
             </a>

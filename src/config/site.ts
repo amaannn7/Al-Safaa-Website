@@ -14,14 +14,14 @@ export const site = {
   /** "more than 3,000 travelers": company-stated on the About page. */
   pilgrimsGuided: "3,000+",
   description:
-    "Hajj and Umrah specialists in Colombo, Sri Lanka since 1997. Organised group pilgrimages with carefully chosen accommodation, transport and experienced guidance.",
+    "Hajj and Umrah specialists in Colombo, Sri Lanka since 1997. Organized group pilgrimages with carefully chosen accommodation, transport and experienced guidance.",
 
   contact: {
     email: "info@flyalsafaa.com",
     /** NEEDS CONFIRMATION (C2): 2026 marketing uses 071 as the main Call / WhatsApp number. */
     whatsapp: { e164: "94717107887", display: "+94 71 710 7887" },
     phones: [
-      { label: "Enquiries · Call / WhatsApp", e164: "94717107887", display: "+94 71 710 7887" },
+      { label: "Call or WhatsApp", e164: "94717107887", display: "+94 71 710 7887" },
       { label: "Mobile", e164: "94727107887", display: "+94 72 710 7887" },
       { label: "Office", e164: "94112366566", display: "+94 11 236 6566" },
     ],

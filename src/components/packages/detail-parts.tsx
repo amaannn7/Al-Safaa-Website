@@ -13,7 +13,7 @@ export function PriceTable({ pkg }: { pkg: TourPackage }) {
       <table className="w-full text-left">
         <caption className="sr-only">Prices in {pkg.currency}</caption>
         <thead>
-          <tr className="text-[0.7rem] font-bold tracking-[0.2em] text-muted uppercase">
+          <tr className="label text-muted">
             <th scope="col" className="pb-3 font-bold">
               Room
             </th>
@@ -27,7 +27,7 @@ export function PriceTable({ pkg }: { pkg: TourPackage }) {
             <tr key={t.label} className="border-t hairline">
               <th scope="row" className="py-4 pr-4 font-semibold">
                 {t.label}
-                {t.note && <span className="block text-[0.8rem] font-normal text-muted">{t.note}</span>}
+                {t.note && <span className="block meta font-normal text-muted">{t.note}</span>}
               </th>
               <td className="display py-4 text-right text-[1.9rem] leading-none tabular-nums">{formatAmount(t.amount)}</td>
             </tr>
@@ -54,12 +54,12 @@ export function StayList({ stays }: { stays: Stay[] }) {
     >
       {stays.map((s, i) => (
         <li key={`${s.hotel}-${i}`} className="flex flex-col bg-sand-50 p-6 lg:p-7">
-          <span className="text-[0.7rem] font-bold tracking-[0.2em] text-gold-700 uppercase">
+          <span className="label text-gold-700">
             {String(i + 1).padStart(2, "0")} · {s.city}
           </span>
           <span className="display mt-4 text-[1.9rem] leading-[1.05]">{s.hotel}</span>
           {s.stars ? (
-            <span className="mt-2 text-sm tracking-[0.2em] text-gold-700" aria-label={`${s.stars} star hotel`}>
+            <span className="mt-2 text-sm tracking-[0.18em] text-gold-700" aria-label={`${s.stars} star hotel`}>
               {"★".repeat(s.stars)}
             </span>
           ) : null}
@@ -70,7 +70,7 @@ export function StayList({ stays }: { stays: Stay[] }) {
               href={s.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.8rem] font-bold tracking-[0.12em] text-ink-700 uppercase hover:text-gold-700"
+              className="mt-auto inline-flex items-center gap-1.5 pt-5 action text-ink-700 hover:text-gold-700"
             >
               View on map <ExternalLink size={13} aria-hidden />
             </a>
@@ -100,7 +100,7 @@ export function ItineraryTimeline({ items, note }: { items: ItineraryItem[]; not
                     <span className="display block text-[1.6rem] leading-none tabular-nums">
                       {d.day} {d.month}
                     </span>
-                    {it.hijri && <span className="mt-1 block text-[0.75rem] text-muted">{it.hijri}</span>}
+                    {it.hijri && <span className="mt-1 block meta text-muted">{it.hijri}</span>}
                   </>
                 ) : (
                   <span className="display block text-[1.6rem] leading-none text-gold-700">Stage {i + 1}</span>
@@ -111,7 +111,7 @@ export function ItineraryTimeline({ items, note }: { items: ItineraryItem[]; not
                   {/* Inside <summary> so it stays visible while the item is closed */}
                   <span aria-hidden className="absolute top-[1.55rem] left-0 h-[0.9375rem] w-[0.9375rem] rounded-full border-2 border-gold-500 bg-sand-100 transition-colors group-open:bg-gold-500 md:-left-[0.4rem]" />
                   <span>
-                    <span className="block text-[0.72rem] font-bold tracking-[0.18em] text-gold-700 uppercase md:hidden">
+                    <span className="block label text-gold-700 md:hidden">
                       {d ? `${d.day} ${d.month} ${d.year}` : `Stage ${i + 1}`}
                       {it.hijri ? ` · ${it.hijri}` : ""}
                     </span>
@@ -148,7 +148,7 @@ export function HighlightList({ items, dark = false }: { items: Highlight[]; dar
         <details key={h.title} className={cn("group border-b", dark ? "border-white/12" : "hairline")} open={i === 0}>
           <summary className="flex items-center justify-between gap-4 py-6">
             <span className="flex min-w-0 items-baseline gap-4 sm:gap-5">
-              <span className={cn("text-[0.75rem] font-bold tabular-nums", dark ? "text-gold-400" : "text-gold-700")}>
+              <span className={cn("meta font-bold tabular-nums", dark ? "text-gold-400" : "text-gold-700")}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="display text-[1.5rem] leading-tight sm:text-[2rem]">{h.title}</span>
