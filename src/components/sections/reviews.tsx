@@ -18,9 +18,9 @@ export async function Reviews() {
       <div className="shell">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div data-reveal>
-            <p className="eyebrow">In their words</p>
+            <p className="eyebrow">Google reviews</p>
             <h2 id="voices" className="display display-md mt-4 max-w-2xl">
-              What pilgrims say about travelling with us.
+              What our pilgrims say
             </h2>
           </div>
           {summary && (
@@ -38,15 +38,16 @@ export async function Reviews() {
         {/* Separate cards (no shared background), so any number of reviews looks complete. */}
         <ul
           className={cn(
-            "mt-14 grid gap-5",
+            "mt-14",
             shown.length === 1 && "max-w-3xl",
-            shown.length === 2 && "md:grid-cols-2",
-            shown.length >= 3 && "md:grid-cols-2 lg:grid-cols-3",
+            shown.length === 2 && "grid gap-5 md:grid-cols-2",
+            // Reviews differ a lot in length: flow them in columns so every card keeps its own height.
+            shown.length >= 3 && "gap-5 md:columns-2 lg:columns-3",
           )}
           data-reveal-group
         >
           {shown.map((r, i) => (
-            <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} />
+            <ReviewCard key={`${r.name}-${i}`} review={r} large={shown.length === 1} masonry={shown.length >= 3} />
           ))}
         </ul>
         <p className="mt-6 text-[0.8rem] text-mist-dim">
@@ -59,7 +60,7 @@ export async function Reviews() {
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="flex gap-0.5 text-gold-400" aria-label={`${rating.toFixed(1)} out of 5 stars`}>
+    <span role="img" className="flex gap-0.5 text-gold-400" aria-label={`${rating.toFixed(1)} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((n) => (
         <Star key={n} size={14} fill={n <= Math.round(rating) ? "currentColor" : "none"} strokeWidth={1.5} aria-hidden />
       ))}
@@ -67,12 +68,12 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function ReviewCard({ review: r, large }: { review: DisplayReview; large?: boolean }) {
+function ReviewCard({ review: r, large, masonry }: { review: DisplayReview; large?: boolean; masonry?: boolean }) {
   return (
-    <li className="flex flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-7 sm:p-8">
+    <li className={cn("flex break-inside-avoid flex-col rounded-[1.25rem] border border-white/12 bg-white/[0.04] p-7 sm:p-8", masonry && "mb-5")}>
       {r.rating && <Stars rating={r.rating} />}
       <blockquote className={cn("mt-5 leading-relaxed", large ? "display text-[1.75rem] leading-snug" : "text-[1rem] text-white/90")}>
-        <p className="line-clamp-[12]">“{r.quote}”</p>
+        <p className="whitespace-pre-line">“{r.quote}”</p>
       </blockquote>
       <footer className="mt-auto flex items-center gap-3 pt-8 text-sm">
         {r.photo && <Image src={r.photo} alt="" width={36} height={36} className="rounded-full" />}
