@@ -50,7 +50,7 @@ export default async function UmrahPage() {
           ) : (
             <div className="rounded-[1.5rem] border hairline p-10 text-center" data-reveal>
               <p className="display text-3xl">There are no Umrah group tours scheduled right now.</p>
-              <WhatsAppButton message={umrahMessage} className="mt-8">
+              <WhatsAppButton message={umrahMessage} className="mt-8 h-auto min-h-12 max-w-full whitespace-normal py-3 text-center">
                 Get in touch with us for more info
               </WhatsAppButton>
             </div>

@@ -63,6 +63,7 @@ Do not report QA you did not run. Run the toolkit below on a **production build*
 | Sideways scrolling and console errors at 320/390/768/1024/1440 | `scripts/qa-overflow.mjs` |
 | SEO basics, WhatsApp/tel format, JSON-LD, axe accessibility, reduced-motion and no-JS visibility | `scripts/qa-a11y-seo.mjs` |
 | Typography consistency (sizes, tracking, text under 12px) | `scripts/qa-typeaudit.mjs --width=390` |
+| Text readable over photos (axe cannot test this) | `scripts/qa-photo-contrast.mjs` |
 | Nothing added beyond the old site | `qa-pagetext.mjs` then `scripts/content-trace.py` |
 | Spelling/naming consistency across pages | sweep the rendered text for variants (Madinah/Medina, UK/US spelling, `150m`/`150M`, Title vs sentence case) |
 | Date logic | build with `PREVIEW_TODAY` set to the day a tour leaves, and to a date after all of them |

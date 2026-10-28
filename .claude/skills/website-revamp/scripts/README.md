@@ -22,6 +22,7 @@ Pages come from `--pages=/,/about/` or, by default, the site's own `sitemap.xml`
 | `qa-a11y-seo.mjs` | title/description/canonical/og/robots, single h1, alt text, duplicate titles, JSON-LD parses, `tel:` format, `WHATSAPP_NUMBER` check, axe violations, h1 visible with reduced motion and with JS off | 1 on any problem |
 | `qa-typeaudit.mjs [--width=390]` | computed typography: label styles grouped by size/weight/tracking, every font size in use, text under 12px, text near the screen edge | report only |
 | `qa-pagetext.mjs out.json` | dumps visible text per page (accordions opened) | - |
+| `qa-photo-contrast.mjs [pages] [widths]` | text over hero photos: hides the text, samples the real pixels behind each word (brightest 5%), reports anything under WCAG AA (4.5, or 3 for large text). Skips sections with no `<img>` | report only |
 | `find-chars.py DIR...` | finds em/en dashes (or `--chars=U+2014,...`) in source; works where grep does not | 1 if found |
 | `old-site-extract.py URL DIR` | snapshots the OLD site: raw HTML, text, URL inventory with lastmod, WordPress media library | - |
 | `content-trace.py OLD_DIR new.json [--ignore RX...]` | lists lines on the new site that the old site never said (parity check) | report only |

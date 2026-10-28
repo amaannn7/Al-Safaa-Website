@@ -20,8 +20,7 @@ export function FinalCta({
         <div className="absolute -inset-y-[10%] inset-x-0" data-parallax>
           <Image src={image.src} alt={image.alt} fill sizes="100vw" className="object-cover" />
         </div>
-        <div className="absolute inset-0 bg-ink-950/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/90 via-ink-950/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 via-55% to-black/10" />
       </div>
       <div className="shell py-28 lg:py-40">
         <div className="max-w-2xl">

@@ -49,6 +49,18 @@ Contents: data patterns · Next.js 16 · CSS and design · mobile menu · review
 - At 320px: shrink the logo (`w-[124px]` under 380px) or the Menu pill is cut off. Stack the address above the social icons under 380px.
 - `backdrop-filter` on a closed overlay can cost paint time: make it `invisible` (not just opacity 0) when closed.
 
+## Photos under text
+- **Do not tint photos with the brand colour.** A dark-teal wash (flat 70% sheet plus two gradients) made every photo look green and muted; the client asked for the photos to be "properly visible". Use neutral black gradients that are strong only behind the text (bottom and left), leave the rest of the picture untouched, and remove film-grain layers over photos.
+- Readability then has to be earned, not assumed: add a soft `text-shadow` halo class for text on photos, a light neutral layer on phones only (text covers more of the picture), a lighter gold for small labels on photos, and a top gradient for breadcrumbs in short heroes.
+- axe cannot measure contrast over images. `scripts/qa-photo-contrast.mjs` samples the real pixels. The first pass found 27 failing text runs; two rounds of tuning took it to 0. When writing such a tool, convert CSS colours with a 1x1 canvas (modern `color(srgb ...)` / `oklab()` strings break naive regexes and make white text read as black).
+
+## Improving low-resolution photos (AI upscaling)
+- Only upscale what is actually small. Audit pixel sizes first (`sips -g pixelWidth -g pixelHeight`); here 4 old-site photos were 644x402 and everything else was 1400px+.
+- Prefer a **faithful** model for real photos of real places and people (Real-ESRGAN x4plus, Topaz Gigapixel, Photoshop Super Resolution). Creative/diffusion upscalers (Magnific, Clarity) invent detail: acceptable for AI art, wrong for faces, landmarks, logos, text, and anything a client must be able to stand behind as "the real thing".
+- Running Real-ESRGAN locally on a Mac: the 2022 `realesrgan-ncnn-vulkan` binary exits silently on Apple Silicon (no Vulkan). Use PyTorch with the `spandrel` loader in a throwaway venv, `RealESRGAN_x4plus.pth` on the `mps` device, 128px tiles with 16px overlap (about 6 s per image on an M4).
+- Do not ship the raw 4x output: on small, already-compressed JPEGs it looks painted (flat foliage, posterised stripes, waxy skin). Upscale 4x, then **downscale to 2x** (what a retina screen needs) and blend 80% AI / 20% plain enlargement. Check 100% crops side by side before replacing anything; keep originals in git.
+- Never generate (text-to-image) pictures of the Kaaba, Masjid al-Haram/an-Nabawi, pilgrims, hotels or the client's own groups and present them as real: it misleads visitors and is disrespectful in a religious context. Use real photos from the client, or licensed stock with credits.
+
 ## Reviews and the marquee
 - Show reviews as independent cards (a shared-background grid leaves an empty panel for some counts). With 3+ reviews, a full-bleed marquee: render the list twice, animate `translateX(-50%)`, mark the copy `aria-hidden` + `inert`.
 - Pause on hover, on keyboard focus (`:has(:focus-visible)`, so a mouse click does not freeze it), and while a card is expanded (`:has([aria-expanded=true])`), which is what makes it usable on touch with no pause button. A visible Pause button was removed at the client's request; offer it back if accessibility matters to them.

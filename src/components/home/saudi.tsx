@@ -28,7 +28,7 @@ export function SaudiExperiences() {
         </ul>
 
         <div className="mt-14 flex flex-wrap items-center gap-6">
-          <WhatsAppButton message={topicEnquiry("Saudi Arabia tours")}>Get in touch with us for more info</WhatsAppButton>
+          <WhatsAppButton message={topicEnquiry("Saudi Arabia tours")} className="h-auto min-h-12 max-w-full whitespace-normal py-3 text-center">Get in touch with us for more info</WhatsAppButton>
         </div>
       </div>
     </section>
@@ -58,7 +58,7 @@ function DestinationTile({ d }: { d: (typeof destinations)[number] }) {
             </svg>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 from-0% via-black/15 via-35% to-transparent to-60%" />
         <div className="absolute inset-x-0 bottom-0 p-7 text-white">
           <p className="label text-gold-400">{d.epithet}</p>
           <h3 className="display mt-2 text-[2.75rem] leading-none">{d.name}</h3>

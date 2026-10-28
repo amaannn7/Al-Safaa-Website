@@ -156,6 +156,10 @@
   .eyebrow.on-dark {
     color: var(--color-gold-400);
   }
+  /* On photographs the label needs the lighter gold to stay readable. */
+  .on-photo .eyebrow {
+    color: var(--color-gold-300);
+  }
 
   /* One family throughout (as in the reference design): light for the
      hero statement, medium with tight tracking for section headings. */
@@ -244,6 +248,11 @@
     opacity: 0.06;
     mix-blend-mode: soft-light;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Text on photographs: a soft dark halo so small text stays readable on bright patches. */
+  .on-photo {
+    text-shadow: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 18px rgb(0 0 0 / 0.45);
   }
 
   .prose-calm p + p {

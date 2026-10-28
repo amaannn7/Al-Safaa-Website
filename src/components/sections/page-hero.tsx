@@ -36,7 +36,7 @@ export function PageHero({
   position?: string;
 }) {
   return (
-    <section className={cn("on-dark grain relative isolate overflow-hidden bg-ink-900 text-white", tall ? "min-h-[88svh]" : compact ? "min-h-[42svh]" : "min-h-[64svh]", "flex items-end")}>
+    <section className={cn("on-dark relative isolate overflow-hidden bg-ink-900 text-white", tall ? "min-h-[88svh]" : compact ? "min-h-[42svh]" : "min-h-[64svh]", "flex items-end")}>
       {image && (
         <div className="absolute inset-0 -z-10">
           <Image
@@ -50,11 +50,13 @@ export function PageHero({
             className="object-cover"
             style={{ objectPosition: position }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-950/70 via-ink-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 from-0% via-black/55 via-45% to-black/10 to-90%" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/35 from-0% to-transparent to-35%" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 via-55% to-transparent" />
+          <div className="absolute inset-0 bg-black/25 md:hidden" />
         </div>
       )}
-      <div className="shell relative w-full pt-36 pb-14 md:pb-20">
+      <div className={cn("shell relative w-full pt-36 pb-14 md:pb-20", image && "on-photo")}>
         <Breadcrumbs crumbs={crumbs} />
         <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className={aside ? "lg:col-span-8" : "lg:col-span-10"}>

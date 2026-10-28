@@ -28,11 +28,13 @@ export async function Hero() {
           data-hero-media
           className="object-cover object-[50%_45%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-ink-950/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/80 via-ink-950/30 to-transparent" />
+        {/* Neutral black shading only behind the text (bottom and left); the rest of the photo stays in its real colours. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 from-0% via-black/50 via-45% to-black/5 to-90%" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 via-55% to-transparent" />
+        <div className="absolute inset-0 bg-black/25 md:hidden" />
       </div>
 
-      <div className="shell relative w-full pt-40 pb-12 md:pb-16">
+      <div className="on-photo shell relative w-full pt-40 pb-12 md:pb-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-9">
             <p className="eyebrow" data-hero-item>

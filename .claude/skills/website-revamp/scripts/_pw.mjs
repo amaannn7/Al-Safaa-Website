@@ -12,7 +12,7 @@ export async function launch() {
   let pw;
   try {
     pw = await import(entry);
-  } catch (e) {
+  } catch {
     console.error(
       `Cannot load Playwright (${entry}). Install it somewhere (e.g. \`npm i playwright\` in a scratch folder) and set PLAYWRIGHT_ENTRY=/abs/path/node_modules/playwright/index.mjs`,
     );
